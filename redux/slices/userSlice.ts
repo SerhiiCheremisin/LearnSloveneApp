@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IUserSliceInitial } from "../../services/types";
 
-const initialState = {
+const initialState:IUserSliceInitial = {
     isUserLogged : false,
+    userName: '',
+    userDictionary: []
 }
 
 const userSlice = createSlice({
@@ -11,9 +14,15 @@ const userSlice = createSlice({
         setUserLogged (state, action) {
             state.isUserLogged = action.payload;
         },
+        setUserName (state, action) {
+            state.userName = action.payload;
+        },
+        setUserDictionary (state, action) {
+            state.userDictionary = action.payload;
+        }
     }
 })
 
-export const { setUserLogged } = userSlice.actions;
+export const { setUserLogged, setUserName, setUserDictionary } = userSlice.actions;
 
 export default userSlice.reducer;

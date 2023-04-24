@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 //reducers
 import userSlice from './slices/userSlice';
+import dictionarySlice from './slices/dictionarySlice';
 
 
 const reduxStore = configureStore({
     reducer: {
-        userSlice
+        userSlice,
+        dictionarySlice,
     }
 })
 
