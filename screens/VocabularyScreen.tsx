@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, ScrollView, StyleSheet } from 'react-native';
 //Styles
 import { Container, CardWrapper, H2 } from '../services/styles';
 //Components
@@ -47,19 +47,24 @@ const VocabularyScreen = () => {
        :
        <View style={{paddingTop: 50}}>
        <H2>{`Вітаю ${user.name}`}</H2>
-       <CardWrapper>
-        
+       <ScrollView style={style.scrollBlock}>
+       <H2>{`Словник`}</H2>
         { categories.map( (element:string) => {
         return (
             <SingleCard categoryTitle = {element}/>
         )
       })  }
-       </CardWrapper>
+       </ScrollView>
        </View>
-
       }  
     </Container>
   )
 }
+
+const style = StyleSheet.create({
+  scrollBlock: {
+    
+  }
+})
 
 export default VocabularyScreen;

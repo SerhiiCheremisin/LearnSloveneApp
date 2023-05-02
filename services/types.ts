@@ -10,6 +10,9 @@ export interface IDictionaryInitial {
     activeCategory: string
 }
 
+export interface IGrammarInitial {
+    activeGrammarBlock: string
+}
 //other
 interface IIrregularVerbs  {
    present: string,

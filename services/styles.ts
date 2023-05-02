@@ -38,23 +38,23 @@ export const PressableButton = styled.Pressable`
 
 export const CardWrapper = styled.View`
   width: 400px;
-  min-height: 600px;
-  flex-direction: row;
+  height: 700px;
+  flex-direction: column;
   gap: 30px;
   border: 1px solid #fff;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-
 `
 
 export const Card = styled.View`
-  width: 150px;
+  width: 350px;
   height: 150px;
   border: 1px solid black;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  margin-bottom: 20px;
 `
 
 export const H2 = styled.Text`
@@ -85,4 +85,38 @@ export const WordAdder = styled.View`
  height: 50px;
  border: 1px solid black;
  margin-top: 20px;
+`
+
+export const TableRow = styled.View`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100px;
+  border: 1px solid black;
+`
+
+export const TableCell = styled.View`
+  display: flex;
+  width: 25%;
+  height: 100%;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+`
+
+export const TableNounTitleBlock = styled.View`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+`
+export const TableNounTitle = styled.Text`
+font-size: 30px;
+`
+export const SmallTableNounTitle = styled.Text`
+font-size: 17px;
+font-weight: bold;
 `

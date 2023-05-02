@@ -25,7 +25,7 @@ const WordList = () => {
 
   return (
     <View style={styles.scrollView}>
-     <Pressable onPress={returnHandler}>
+     <Pressable style={styles.returnButton} onPress={returnHandler}>
        <H2>{`<- Назад`}</H2>    
      </Pressable>   
      {
@@ -53,6 +53,15 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    returnButton: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: 25,
+      height: 100,
+      backgroundColor: "teal",
+      marginBottom: 15
     }
 })
 

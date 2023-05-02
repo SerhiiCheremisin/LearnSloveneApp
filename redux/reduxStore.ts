@@ -3,12 +3,14 @@ import { configureStore } from '@reduxjs/toolkit';
 //reducers
 import userSlice from './slices/userSlice';
 import dictionarySlice from './slices/dictionarySlice';
+import grammarSlice from './slices/grammarSlice';
 
 
 const reduxStore = configureStore({
     reducer: {
         userSlice,
         dictionarySlice,
+        grammarSlice
     }
 })
 
