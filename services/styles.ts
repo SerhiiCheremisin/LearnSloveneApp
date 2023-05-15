@@ -63,7 +63,7 @@ export const H2 = styled.Text`
 `
 
 export const WordItem = styled.View`
-  width: 400px;
+  width: 350px;
   height: 300px;
   border: 2px solid blue;
   border-radius: 15px;
