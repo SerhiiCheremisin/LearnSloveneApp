@@ -61,7 +61,17 @@ export const H2 = styled.Text`
   font-size: 30px;
   padding-bottom: 50px;
 `
-
+export const H4 = styled.Text`
+   font-size: 20px;
+   margin-bottom: 10px;
+`
+export const H3 = styled.Text`
+font-size: 15px;
+margin-bottom: 10px;
+`
+export const BigText = styled.Text`
+font-size: 30px;
+`
 export const WordItem = styled.View`
   width: 350px;
   height: 300px;
@@ -95,6 +105,23 @@ export const TableRow = styled.View`
   border: 1px solid black;
 `
 
+export const TableCellSmall = styled.View`
+  display: flex;
+  width: 20%;
+  height: 100%;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+`
+
+export const TableCellLarge = styled.View`
+  display: flex;
+  width: 33%;
+  height: 100%;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+`
 export const TableCell = styled.View`
   display: flex;
   width: 25%;

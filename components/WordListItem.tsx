@@ -9,11 +9,15 @@ interface IWordListItemProps {
 
 const WordListItem = ( {item}:IWordListItemProps ) => {
 
+  const addToDictionary = ():void => {
+  console.log(item)
+  }
+
   return (
      <WordItem>
         <WordItemPartition>{`${item.sloWord} - ${item.urkWord}`}</WordItemPartition>
         { item.isIrregular && <Text>{ `теперешній час ${item.irregulars.present} , майбутній та минулий час ${item.irregulars.pastAndFuture}` }</Text> }
-        <Pressable>
+        <Pressable onPress = {addToDictionary}>
           <WordAdder><Text>{`Додати до мого словника`}</Text></WordAdder>   
         </Pressable>
      </WordItem>

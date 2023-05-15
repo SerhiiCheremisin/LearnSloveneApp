@@ -10,12 +10,16 @@ import { baseDictionary } from '../services/rootDictionary';
 import { IRootDictionary } from '../services/types';
 import useDictionaryData from '../services/hooks/useDictionaryData';
 import useUserData from '../services/hooks/useUserData';
+import { getLocalDataName } from '../services/functions';
+import { setUserName } from '../redux/slices/userSlice';
+import useCommonDispatch from '../services/hooks/useCommonDispatch';
 
 const VocabularyScreen = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [categories, setCategories] = useState<[]>([]);
     const activeDictionaryCategory = useDictionaryData();
     const user = useUserData();
+    const dispatch = useCommonDispatch();
   
   useEffect( () => {
    const categories: string[] = [];
@@ -29,6 +33,7 @@ const VocabularyScreen = () => {
    categoriesSet.forEach( (category:string) => {
     categories.push(category);
    })
+   getLocalDataName().then( data => dispatch(setUserName(data.userName)))
    setCategories(categories);
    setIsLoading(false);
   },[])

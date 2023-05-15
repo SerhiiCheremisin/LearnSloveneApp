@@ -26,3 +26,9 @@ export interface IRootDictionary {
     urkWord: string,
     category: string
 }
+
+export interface ILocalStorageData {
+    userName: string,
+    userPassword: string;
+    userDictionary: IRootDictionary[]
+}

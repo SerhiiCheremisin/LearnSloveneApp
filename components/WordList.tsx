@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { View, Text, Pressable, ScrollView, FlatList, ActivityIndicator, SafeAreaView, StyleSheet } from 'react-native';
 import { IRootDictionary } from '../services/types';
-import { H2 } from '../services/styles';
+import { BigText } from '../services/styles';
 import { baseDictionary } from '../services/rootDictionary';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
 import { setActiveCategory } from '../redux/slices/dictionarySlice';
@@ -26,7 +26,7 @@ const WordList = () => {
   return (
     <View style={styles.scrollView}>
      <Pressable style={styles.returnButton} onPress={returnHandler}>
-       <H2>{`<- Назад`}</H2>    
+       <BigText>Назад</BigText>    
      </Pressable>   
      {
       wordList.length === 0 ?

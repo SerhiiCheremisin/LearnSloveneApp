@@ -3,8 +3,8 @@ import { View, Text, Alert } from 'react-native';
 import { Container } from '../services/styles';
 import { TextField, TextForm, PressableButton } from '../services/styles';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
-
-import { setUserName as setReduxName, setUserDictionary, setUserLogged } from '../redux/slices/userSlice';
+import { setLocalDataName } from '../services/functions';
+import { setUserDictionary, setUserLogged } from '../redux/slices/userSlice';
 
 import useUserData from '../services/hooks/useUserData';
 
@@ -28,7 +28,11 @@ const LoginForm = () => {
         },
              ]);
     }
-    dispatch(setReduxName(userName));
+    setLocalDataName({
+      userName: userName,
+      userPassword: userPassword,
+      userDictionary: []
+    });
     dispatch(setUserLogged(true));
   }
 
