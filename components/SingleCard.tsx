@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Pressable } from 'react-native';
+import { Text, Pressable, View } from 'react-native';
 import { Card } from '../services/styles';
 import { setActiveCategory } from '../redux/slices/dictionarySlice';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
@@ -7,8 +7,6 @@ import useCommonDispatch from '../services/hooks/useCommonDispatch';
 interface ISingleCardProps {
   categoryTitle : string
 }
-
-
 
 const SingleCard = ( {categoryTitle} : ISingleCardProps ) => {
 
@@ -23,7 +21,6 @@ const SingleCard = ( {categoryTitle} : ISingleCardProps ) => {
        <Text>{`${categoryTitle}`}</Text>
      </Card>
     </Pressable>
-
   )
 }
 

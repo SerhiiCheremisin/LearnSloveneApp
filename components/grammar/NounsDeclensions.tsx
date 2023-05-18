@@ -7,7 +7,7 @@ import { TableNounTitleBlock, TableNounTitle } from '../../services/styles';
 const NounsDeclensions = () => {
 
   return (
-   <ScrollView style={{paddingTop: 40}}>
+   <ScrollView style={{paddingTop: 50}}>
     <Container style={{marginBottom: 40}}> 
       <ReturnGrammarButton/>
     <TableNounTitleBlock><TableNounTitle>Чоловічий рід</TableNounTitle></TableNounTitleBlock>

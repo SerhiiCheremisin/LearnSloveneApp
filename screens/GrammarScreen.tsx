@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import React from 'react'
+import { Text, StyleSheet, Pressable } from 'react-native';
 import { Container } from '../services/styles';
 import useActiveGrammar from '../services/hooks/useActiveGrammar';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
        height: 100,
        justifyContent: "center",
        alignItems: "center",
-       backgroundColor: "red",
+       backgroundColor: "#71D5E4",
        borderRadius: 15, 
        marginBottom: 15 
     }

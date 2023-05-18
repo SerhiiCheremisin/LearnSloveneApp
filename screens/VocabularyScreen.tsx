@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import { View, Text, ActivityIndicator, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ActivityIndicator, ScrollView, StyleSheet, Pressable } from 'react-native';
 //Styles
-import { Container, CardWrapper, H2 } from '../services/styles';
+import { Container, H2, ExitButton } from '../services/styles';
+
 //Components
 import SingleCard from '../components/SingleCard';
 import WordList from '../components/WordList';
@@ -11,8 +12,10 @@ import { IRootDictionary } from '../services/types';
 import useDictionaryData from '../services/hooks/useDictionaryData';
 import useUserData from '../services/hooks/useUserData';
 import { getLocalDataName } from '../services/functions';
-import { setUserName } from '../redux/slices/userSlice';
+import { setUserLogged, setUserName } from '../redux/slices/userSlice';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
+import { removeLocalUser } from '../services/functions';
+
 
 const VocabularyScreen = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -37,6 +40,11 @@ const VocabularyScreen = () => {
    setCategories(categories);
    setIsLoading(false);
   },[])
+
+  const exitHandler = () => {
+    removeLocalUser();
+    dispatch(setUserLogged(false));
+  }
    
    if (activeDictionaryCategory !== '') {
     return (
@@ -52,11 +60,14 @@ const VocabularyScreen = () => {
        :
        <View style={{paddingTop: 50}}>
        <H2>{`Вітаю ${user.name}`}</H2>
-       <ScrollView style={style.scrollBlock}>
+       <ExitButton style={{margin: 20}} onPress={exitHandler}>
+         <Text>Вийти</Text>
+       </ExitButton>
+       <ScrollView>
        <H2>{`Словник`}</H2>
-        { categories.map( (element:string) => {
+        { categories.map( (element:string, idx: number) => {
         return (
-            <SingleCard categoryTitle = {element}/>
+            <SingleCard key={idx} categoryTitle = {element}/>
         )
       })  }
        </ScrollView>
@@ -65,11 +76,5 @@ const VocabularyScreen = () => {
     </Container>
   )
 }
-
-const style = StyleSheet.create({
-  scrollBlock: {
-    
-  }
-})
 
 export default VocabularyScreen;

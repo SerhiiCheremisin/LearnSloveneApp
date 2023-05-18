@@ -5,7 +5,7 @@ import { Container, H2, H4, H3 } from '../../services/styles';
 
 const ChangeFormOvWord = () => {
   return (
-    <ScrollView style={{marginTop: 40}}>
+    <ScrollView style={{marginTop: 50}}>
      <Container>
      <ReturnGrammarButton/>  
          <H2 style={{paddingBottom: 10}}>Ось список найпоширеніших:</H2>  

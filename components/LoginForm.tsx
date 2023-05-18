@@ -50,6 +50,7 @@ const LoginForm = () => {
          onChangeText={passwordHandler}
          />
          <PressableButton
+         style={{backgroundColor: "#71D5E4"}}
           onPress={buttonHandler}
            >
            <Text>Увійти або зареєструватися</Text>

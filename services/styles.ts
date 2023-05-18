@@ -6,7 +6,7 @@ export const Container = styled.View`
  flex: 1;
  justify-content: center;
  align-items: center;
- background-color: #8a09c1;
+ background-color: #00B6BC;
 `
 export const TextField = styled.TextInput`
  border-radius: 50px;
@@ -16,7 +16,7 @@ export const TextField = styled.TextInput`
  padding-left: 50px;
 `
 export const TextForm = styled.View`
- height: 550px;
+ height: 80%;
  width: 100%;
  border-radius: 50px;
  border: 2px solid black;
@@ -55,11 +55,12 @@ export const Card = styled.View`
   align-items: center;
   border-radius: 10px;
   margin-bottom: 20px;
+  backgroundColor: #71D5E4;
 `
 
 export const H2 = styled.Text`
   font-size: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 `
 export const H4 = styled.Text`
    font-size: 20px;
@@ -75,12 +76,13 @@ font-size: 30px;
 export const WordItem = styled.View`
   width: 350px;
   height: 300px;
-  border: 2px solid blue;
+  border: 2px solid black;
   border-radius: 15px;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
   flex-direction: column;
+  background-color: #71D5E4;
 `
 
 export const WordItemPartition = styled.Text`
@@ -146,4 +148,27 @@ font-size: 30px;
 export const SmallTableNounTitle = styled.Text`
 font-size: 17px;
 font-weight: bold;
+`
+
+export const MyDictionaryCard = styled.View`
+  display: flex;
+  height: 150px;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  background-color: #A1DBF1;
+  border-radius: 10px;
+  justify-content: center;
+  padding: 0 25px
+`
+
+export const ExitButton = styled.Pressable`
+  width: 200px;
+  height: 50px;
+  color: black;
+  border-radius: 15px;
+  background-color: #A1DBF1;
+  justify-content: center;
+  align-items: center;
 `

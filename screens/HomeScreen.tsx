@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
-import { View, Text } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Image } from 'react-native';
 import { getLocalDataName } from '../services/functions';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
 import { setUserName } from '../redux/slices/userSlice';
@@ -9,7 +8,6 @@ import { setUserDictionary } from '../redux/slices/userSlice';
 import { setUserLogged } from '../redux/slices/userSlice';
 
 import useLoggedUser from '../services/hooks/useLoggedUser';
-import useUserData from '../services/hooks/useUserData';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -22,7 +20,6 @@ import LoginForm from '../components/LoginForm';
 
 const HomeScreen = () => {
  const isUserLogged = useLoggedUser();
- const user = useUserData();
  const Tab = createBottomTabNavigator();
  const dispatch = useCommonDispatch();
 
@@ -47,23 +44,26 @@ const HomeScreen = () => {
         })} >
           <Tab.Screen name="Словник" component={VocabularyScreen} options={{ tabBarIcon: () => {
              return(
-              <View>
-                <Text>Словник</Text>
-              </View>
+              <Image
+              style={{ width: 20, height: 20 }}
+              source={require('./../assets/dictionary.png')}
+            />
              ) 
           } }}/>
            <Tab.Screen name="Тренування слів" component={TrainingScreen} options={{ tabBarIcon: () => {
              return(
-              <View>
-                <Text>Тренування слів</Text>
-              </View>
+              <Image
+              style={{ width: 20, height: 20 }}
+              source={require('./../assets/analysis.png')}
+            />
              ) 
           } }}/>
             <Tab.Screen name="Граматика" component={GrammarScreen} options={{ tabBarIcon: () => {
              return(
-              <View>
-                <Text>Граматика</Text>
-              </View>
+              <Image
+              style={{ width: 20, height: 20 }}
+              source={require('./../assets/book.png')}
+            />
              ) 
           } }}/>
 

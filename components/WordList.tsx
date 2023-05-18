@@ -47,7 +47,9 @@ const WordList = () => {
 
 const styles = StyleSheet.create({
     scrollView: {
-        paddingTop: 50
+        paddingTop: 50,
+        paddingBottom: 250,
+        backgroundColor: "#00B6BC",
     },
     listStyle : {
         display: 'flex',

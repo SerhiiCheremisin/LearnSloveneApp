@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     returnButton : {
       width: 150,
       height: 50,
-      backgroundColor: "white",
+      backgroundColor: "#71D5E4",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
