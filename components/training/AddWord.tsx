@@ -74,6 +74,7 @@ const irregularAdder = (key: string, value: string):void => {
 const backgroundButtomRender = newWord.isIrregular ? "green" : "#71D5E4";
 const backgroundButtomRenderNegative = newWord.isIrregular ? "#71D5E4" : "green";
     return(
+        <ScrollView nestedScrollEnabled = {true}>
         <SafeAreaView>
          <View style={styles.rowWrapper}>
           { uniqueLetters.map( (letter:string, idx:number) => {
@@ -100,7 +101,7 @@ const backgroundButtomRenderNegative = newWord.isIrregular ? "#71D5E4" : "green"
       />
       <View>
         { newWord.category === "" ? <H2>Оберіть категорію</H2> : <H2>{`Обрана категорія: ${newWord.category}`}</H2> }
-        <ScrollView style={styles.cateoryWrapper}>
+        <ScrollView nestedScrollEnabled = {true} style={styles.cateoryWrapper}>
            { selection.map( (el:string, idx:number) => {
                 return(
                     <Pressable onPress={() => setNewWord( {...newWord, category: el}) } style={styles.choseCategotyButton} key={idx}>
@@ -130,10 +131,11 @@ const backgroundButtomRenderNegative = newWord.isIrregular ? "#71D5E4" : "green"
                  placeholder="Минулий та майбутній"
               />
                 </View> }
-            <PressableButton onPress={addTheWord} style={{marginTop: 25}}>
+            <PressableButton onPress={addTheWord} style={{marginTop: 25, marginBottom: 55}}>
              <Text>Додати слово</Text>    
             </PressableButton>    
         </SafeAreaView>
+        </ScrollView>
     )
 }
 
