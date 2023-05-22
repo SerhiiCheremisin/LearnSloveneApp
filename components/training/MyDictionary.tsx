@@ -34,7 +34,7 @@ const MyDictionary = () => {
      {dictionary.map( (item:IRootDictionary, idx: number) => {
           return (
             <MyDictionaryCard key={idx}>
-               <H3>{`${item.sloWord.toUpperCase()} - ${item.urkWord.toUpperCase()}`}</H3>
+               <H3>{`${item.sloWord.toUpperCase()} - ${item.ukrWord.toUpperCase()}`}</H3>
                {item.irregulars && <H3>{`Теперішній час "${item.irregulars.present.toUpperCase()}", майбутній та минулий час "${item.irregulars.pastAndFuture.toUpperCase()}"`}</H3>}
                <PressableButton onPress={() => deleteWordFromDictionary(item)}>
                 <Text>Видалити це слово</Text>

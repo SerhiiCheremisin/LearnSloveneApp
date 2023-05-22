@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { Container } from '../services/styles';
 import { getLocalDataName } from '../services/functions';
@@ -11,6 +11,7 @@ import useUserData from '../services/hooks/useUserData';
 import ReturnToTraining from '../components/training/ReturnToTraining';
 import MyDictionary from '../components/training/MyDictionary';
 import WordsTraining from '../components/training/WordsTraining';
+import AddWord from '../components/training/AddWord';
 
 const TrainingScreen = () =>  {
 
@@ -27,6 +28,15 @@ useEffect( () => {
 
 const viewHandler = (page: string):void => {
   setActiveTraining(page)
+}
+
+const ViewTemplate = ( {children} ) => {
+return(
+  <ScrollView style={styles.basicView}>
+  <ReturnToTraining getBack={setActiveTraining}/>
+  {children}
+ </ScrollView>
+)
 }
 
 switch(activeTraining ) {
@@ -46,22 +56,29 @@ switch(activeTraining ) {
           <Pressable onPress={() => viewHandler("wordsTraining")} style={styles.trainingButton}>
           <Text>{`Тренування слів`}</Text>
           </Pressable>
+          <Pressable onPress={() => viewHandler("addWord")} style={styles.trainingButton}>
+          <Text>{`Додати своє слово`}</Text>
+          </Pressable>
         </Container>
       )
     }
   case "dictionary" :
     return (
-      <ScrollView style={styles.basicView}>
-        <ReturnToTraining getBack={setActiveTraining}/>
-        <MyDictionary/>
-      </ScrollView>
+     <ViewTemplate>
+      <MyDictionary/>
+     </ViewTemplate>
     );
   case "wordsTraining" : 
   return (
-    <ScrollView style={styles.basicView}> 
-      <ReturnToTraining getBack={setActiveTraining}/>
-      <WordsTraining/>
-    </ScrollView>
+    <ViewTemplate>
+     <WordsTraining/>
+   </ViewTemplate>
+  );
+  case "addWord" : 
+  return (
+    <ViewTemplate>
+    <AddWord/>
+    </ViewTemplate>
   );
   }
 }

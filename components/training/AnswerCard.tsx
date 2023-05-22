@@ -33,8 +33,8 @@ const AnswerCard = ( { currentWord, respondFunction, correctRespond } : ISingleC
     } 
 
   return (
-    <Pressable onPress={() => respondHandler(currentWord?.urkWord)} style={[styles.answerButton, customBackground]}>
-    <H3>{currentWord?.urkWord.toUpperCase()}</H3>
+    <Pressable onPress={() => respondHandler(currentWord?.ukrWord)} style={[styles.answerButton, customBackground]}>
+    <H3>{currentWord?.ukrWord.toUpperCase()}</H3>
    </Pressable>
   )
 }

@@ -14,7 +14,7 @@ export interface IGrammarInitial {
     activeGrammarBlock: string
 }
 //other
-interface IIrregularVerbs  {
+export interface IIrregularVerbs  {
    present: string,
    pastAndFuture: string
 } 
@@ -23,7 +23,7 @@ export interface IRootDictionary {
     isIrregular:boolean,
     irregulars? : IIrregularVerbs,
     sloWord: string,
-    urkWord: string,
+    ukrWord: string,
     category: string
 }
 

@@ -45,7 +45,7 @@ const WordListItem = ( {item}:IWordListItemProps ) => {
 
   return (
      <WordItem>
-        <WordItemPartition>{`${item.sloWord} - ${item.urkWord}`}</WordItemPartition>
+        <WordItemPartition>{`${item.sloWord} - ${item.ukrWord}`}</WordItemPartition>
         { item.isIrregular && <Text>{ `теперешній час ${item.irregulars.present} , майбутній та минулий час ${item.irregulars.pastAndFuture}` }</Text> }
         { !isInDictionaryCheck ? 
           <Pressable onPress = {dictionaryHandler}>

@@ -51,7 +51,7 @@ const WordsTraining = () => {
   }
  
   const answerHandler = (answer: string) => {
-    if (answer === trainigDictionary[pace].urkWord) {
+    if (answer === trainigDictionary[pace].ukrWord) {
       setPace(pace+1);
       setCorrectAnswers(correctAnswers+1);
     }
@@ -84,7 +84,7 @@ const motivationText = ():string => {
            <View>
             {answers.map( (el: IRootDictionary, idx: number) => {
             return(
-             <AnswerCard key={idx} currentWord={el} respondFunction={answerHandler} correctRespond={trainigDictionary[pace].urkWord}/>
+             <AnswerCard key={idx} currentWord={el} respondFunction={answerHandler} correctRespond={trainigDictionary[pace].ukrWord}/>
             )
         })}
        </View>
