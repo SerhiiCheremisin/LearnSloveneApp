@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   trainingButton : {
     width: 250,
     height: 50,
-    backgroundColor: "#A1DBF1",
+    backgroundColor: "#71D5E4",
     borderRadius: 10,
     display: "flex",
     justifyContent: "center",
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     display: "flex",
     paddingTop: 50,
     paddingBottom: 250,
-    backgroundColor: "teal",
+    backgroundColor: "#A1DBF1",
     paddingHorizontal: 10
    }
 })

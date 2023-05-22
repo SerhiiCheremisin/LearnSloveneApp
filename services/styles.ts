@@ -6,7 +6,7 @@ export const Container = styled.View`
  flex: 1;
  justify-content: center;
  align-items: center;
- background-color: #00B6BC;
+ background-color: #A1DBF1;
 `
 export const TextField = styled.TextInput`
  border-radius: 50px;
@@ -83,6 +83,10 @@ export const WordItem = styled.View`
   margin-bottom: 10px;
   flex-direction: column;
   background-color: #71D5E4;
+`
+export const GrammarText = styled.Text`
+font-size: 15px;
+margin: 15px 0px;
 `
 
 export const WordItemPartition = styled.Text`
@@ -168,7 +172,7 @@ export const ExitButton = styled.Pressable`
   height: 50px;
   color: black;
   border-radius: 15px;
-  background-color: #A1DBF1;
+  background-color: #71D5E4;
   justify-content: center;
   align-items: center;
 `

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native';
-import { Container } from '../../services/styles';
+import { Container, GrammarText } from '../../services/styles';
 import { TableCellSmall, TableRow, TableCellLarge } from '../../services/styles';
 import ReturnGrammarButton from './ReturnGrammarButton';
 
@@ -9,7 +9,7 @@ const ToBeVerb = () => {
    <ScrollView style={{paddingTop: 50}}>
      <Container style={{paddingBottom: 40}}>
       <ReturnGrammarButton/> 
-      <Text>ДІЄСЛОВА БУТИ ТА МАТИ (ПОЗИТИВНА ТА НЕГАТИВНА ФОРМА ДЛЯ ТЕПЕРІШНЬОГО ТА МИНУЛОГО ЧАСУ)</Text>
+      <GrammarText>ДІЄСЛОВА БУТИ ТА МАТИ (ПОЗИТИВНА ТА НЕГАТИВНА ФОРМА ДЛЯ ТЕПЕРІШНЬОГО ТА МИНУЛОГО ЧАСУ)</GrammarText>
       <TableRow>
       <TableCellSmall></TableCellSmall>
       <TableCellSmall><Text>BITI (Бути)</Text></TableCellSmall>
@@ -80,7 +80,7 @@ const ToBeVerb = () => {
       <TableCellSmall><Text>imajo</Text></TableCellSmall>
       <TableCellSmall><Text>nimajo</Text></TableCellSmall>
       </TableRow>
-      <Text>ДІЄСЛОВО БУТИ (ПОЗИТИВНА ТА НЕГАТИВНА ФОРМА ДЛЯ МАЙБУТНЬОГО)</Text>
+      <GrammarText>ДІЄСЛОВО БУТИ (ПОЗИТИВНА ТА НЕГАТИВНА ФОРМА ДЛЯ МАЙБУТНЬОГО)</GrammarText>
       <TableRow>
         <TableCellLarge><Text>Jaz</Text></TableCellLarge>
         <TableCellLarge><Text>bom</Text></TableCellLarge>
