@@ -47,7 +47,16 @@ useEffect( () => {
 const uniqueLetters: string[] = ["č", "š", "ž", ]
 
 const addTheWord = ():void => {
-    const sendDataToPhone = [...user.dictionary, ...[newWord]];
+  if (newWord.sloWord === "" || newWord.ukrWord === "" || newWord.category === "" ) {
+    if (newWord.irregular === true ) {
+      if (  newWord.irregulars.present === "" || newWord.irregulars.pastAndFuture === "") {
+        return
+      }
+      return
+    }
+    return
+  }
+  const sendDataToPhone = [...user.dictionary, ...[newWord]];
   const addedgWord:ILocalStorageData = {
     userName: user.name,
     userPassword: password,

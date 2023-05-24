@@ -27,6 +27,7 @@ const LoginForm = () => {
           text: 'Зрозумів',
         },
              ]);
+        return     
     }
     setLocalDataName({
       userName: userName,
