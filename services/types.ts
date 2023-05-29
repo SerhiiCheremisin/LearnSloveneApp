@@ -32,3 +32,45 @@ export interface ILocalStorageData {
     userPassword: string;
     userDictionary: IRootDictionary[]
 }
+
+// grammar
+export interface INounDeclensionHeaders {
+    nounsTitle: string[]
+}
+interface ISIngleNoun {
+    questions : string,
+    ukrName: string
+}
+export interface INounQuestions {
+    nominative : ISIngleNoun,
+    genitive : ISIngleNoun,
+    dative : ISIngleNoun,
+    accusative : ISIngleNoun,
+    locative : ISIngleNoun,
+    instrumental : ISIngleNoun
+}
+
+interface INounDeclension {
+    nominative : string[],
+    genitive: string[],
+    dative: string[],
+    accusative: string[],
+    locative: string[],
+    instrumental: string[],
+} 
+
+export interface IDeclensionNounsRules {
+        masculine: {
+         declensions: INounDeclension
+       } ,
+          feminine : {
+           declensions: INounDeclension
+       } ,
+      neuter : {
+       declensions:INounDeclension
+       } 
+   }
+
+
+   export type headerOption = "masculine" | "feminine" | "neuter";
+   export type sklon = "nominative" | "genitive" | "dative" | "accusative" | "locative" | "instrumental";

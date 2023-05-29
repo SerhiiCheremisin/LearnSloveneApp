@@ -3,165 +3,118 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { Container, TableCell, TableRow, SmallTableNounTitle } from '../../services/styles';
 import ReturnGrammarButton from './ReturnGrammarButton';
 import { TableNounTitleBlock, TableNounTitle } from '../../services/styles';
+// grammar
+import { nounDeclension, nounDeclensionRules, nounsQuestions } from '../../services/grammarRules';
+import { headerOption, sklon } from '../../services/types';
 
 const NounsDeclensions = () => {
 
+const headerTitleRender = (sklon:sklon) => {
+     return (
+          <TableCell><SmallTableNounTitle>{`${nounsQuestions[sklon].ukrName}`}</SmallTableNounTitle><Text>{`${nounsQuestions[sklon].questions}`}</Text></TableCell> 
+         )
+}
+const headerRender = () => {
+    return nounDeclension.nounsTitle.map( (el:string, idx) => {
+          return <TableCell key={idx}><Text>{`${el.toUpperCase()}`}</Text></TableCell>  
+        })
+}
+
+const renderCell = (gender:headerOption, sklon: sklon) => {
+     return nounDeclensionRules[gender].declensions[sklon].map( (el: string, idx: number) => {
+          return <TableCell key={idx}><Text>{el}</Text></TableCell> 
+     })
+}
   return (
    <ScrollView style={{paddingTop: 50}}>
     <Container style={{marginBottom: 40}}> 
       <ReturnGrammarButton/>
     <TableNounTitleBlock><TableNounTitle>Чоловічий рід</TableNounTitle></TableNounTitleBlock>
       <TableRow>
-       <TableCell><Text>Відмінок</Text></TableCell>  
-       <TableCell><Text>Однина</Text></TableCell> 
-       <TableCell><Text>Двоїна</Text></TableCell> 
-       <TableCell><Text>Множина</Text></TableCell> 
+        { headerRender() }
       </TableRow> 
       <TableRow>
-       <TableCell><SmallTableNounTitle>Називний</SmallTableNounTitle><Text>Kdo- хто, kaj -що</Text>
-       </TableCell>  
-       <TableCell><Text>- (Velik pes)</Text></TableCell> 
-       <TableCell><Text>a (Velika psa)</Text></TableCell> 
-       <TableCell><Text>i (Veliki psi)</Text></TableCell> 
+       { headerTitleRender("nominative") }   
+       { renderCell("masculine", "nominative") }
       </TableRow> 
       <TableRow>
-       <TableCell><SmallTableNounTitle>Родовий</SmallTableNounTitle><Text>Koga - кого, česa - чого</Text>
-       </TableCell>  
-       <TableCell><Text>ega + a</Text></TableCell> 
-       <TableCell><Text>ih + ov/ev</Text></TableCell> 
-       <TableCell><Text>ih + ov/ev</Text></TableCell> 
+      { headerTitleRender("genitive") } 
+      { renderCell("masculine", "genitive") }
       </TableRow>
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Давальний</SmallTableNounTitle><Text>Komu - кому, čemu - чому</Text>
-       </TableCell>  
-       <TableCell><Text>emu + u</Text></TableCell> 
-       <TableCell><Text>ima + oma/ ema(c, č, ž, š, j) </Text></TableCell> 
-       <TableCell><Text>im + om/ em (c, č, ž, š, j)</Text></TableCell> 
+       { headerTitleRender("dative") }
+       { renderCell("masculine", "dative") }
       </TableRow> 
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Знахідний</SmallTableNounTitle><Text>Koga - кого, Kaj - що,Kam - куди</Text>
-       </TableCell>  
-       <TableCell><Text>є душа - ega + -a немає душі -</Text></TableCell> 
-       <TableCell><Text>a</Text></TableCell> 
-       <TableCell><Text>e</Text></TableCell> 
+       { headerTitleRender("accusative") }
+       { renderCell("masculine", "accusative") }
       </TableRow> 
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Орудний</SmallTableNounTitle><Text>Z kom - з ким,čim - з чим</Text>
-       </TableCell>  
-       <TableCell><Text>im + om/em (c, č, ž, š, j)</Text></TableCell> 
-       <TableCell><Text>ima + oma/ ema(c, č, ž, š, j)</Text></TableCell> 
-       <TableCell><Text>imi + i</Text></TableCell> 
+      { headerTitleRender("locative") }
+       { renderCell("masculine", "locative") }
       </TableRow> 
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Місцевий</SmallTableNounTitle><Text>Kje - де, o kom - про кого, o čim - про що</Text>
-       </TableCell>  
-       <TableCell><Text>em + u</Text></TableCell> 
-       <TableCell><Text>ih</Text></TableCell> 
-       <TableCell><Text>ih</Text></TableCell> 
+     { headerTitleRender("instrumental") }
+       { renderCell("masculine", "instrumental") }
       </TableRow> 
-
     <TableNounTitleBlock><TableNounTitle>Жіночий рід</TableNounTitle></TableNounTitleBlock>
     <TableRow>
-       <TableCell><Text>Відмінок</Text></TableCell>  
-       <TableCell><Text>Однина</Text></TableCell> 
-       <TableCell><Text>Двоїна</Text></TableCell> 
-       <TableCell><Text>Множина</Text></TableCell> 
+    { headerRender() }
       </TableRow> 
       <TableRow>
-       <TableCell><SmallTableNounTitle>Називний</SmallTableNounTitle><Text>Kdo- хто, kaj -що</Text>
-       </TableCell>  
-       <TableCell><Text>a</Text></TableCell> 
-       <TableCell><Text>i</Text></TableCell> 
-       <TableCell><Text>e</Text></TableCell> 
+      { headerTitleRender("nominative") }  
+       { renderCell("feminine", "nominative") }
       </TableRow> 
       <TableRow>
-       <TableCell><SmallTableNounTitle>Родовий</SmallTableNounTitle><Text>Koga - кого, česa - чого</Text>
-       </TableCell>  
-       <TableCell><Text>e (іноді i) </Text></TableCell> 
-       <TableCell><Text>ih + -</Text></TableCell> 
-       <TableCell><Text>ih + -</Text></TableCell> 
+      { headerTitleRender("genitive") }  
+       {  renderCell("feminine", "genitive") }
       </TableRow>
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Давальний</SmallTableNounTitle><Text>Komu - кому, čemu - чому</Text>
-       </TableCell>  
-       <TableCell><Text>i</Text></TableCell> 
-       <TableCell><Text>ima + ama/ima/ema</Text></TableCell> 
-       <TableCell><Text>im + am/im/em</Text></TableCell> 
+      { headerTitleRender("dative") } 
+       {  renderCell("feminine", "dative") }
       </TableRow> 
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Знахідний</SmallTableNounTitle><Text>Koga - кого, Kaj - що,Kam - куди</Text>
-       </TableCell>  
-       <TableCell><Text>o</Text></TableCell> 
-       <TableCell><Text>i</Text></TableCell> 
-       <TableCell><Text>e,</Text></TableCell> 
+      { headerTitleRender("accusative") } 
+       {  renderCell("feminine", "accusative") }
       </TableRow> 
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Орудний</SmallTableNounTitle><Text>Z kom - з ким,čim - з чим</Text>
-       </TableCell>  
-       <TableCell><Text>o + o/ojo</Text></TableCell> 
-       <TableCell><Text>ima + ama/ema</Text></TableCell> 
-       <TableCell><Text>imi + ami</Text></TableCell> 
+      { headerTitleRender("locative") } 
+       { renderCell("feminine", "locative") } 
       </TableRow> 
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Місцевий</SmallTableNounTitle><Text>Kje - де, o kom - про кого, o čim - про що</Text>
-       </TableCell>  
-       <TableCell><Text>i</Text></TableCell> 
-       <TableCell><Text>ih + ah/eh</Text></TableCell> 
-       <TableCell><Text>ih + ah/eh</Text></TableCell> 
+      { headerTitleRender("instrumental") } 
+       { renderCell("feminine", "instrumental") }
       </TableRow> 
-
       <TableNounTitleBlock><TableNounTitle>Середній рід</TableNounTitle></TableNounTitleBlock>
       <TableRow>
-       <TableCell><Text>Відмінок</Text></TableCell>  
-       <TableCell><Text>Однина</Text></TableCell> 
-       <TableCell><Text>Двоїна</Text></TableCell> 
-       <TableCell><Text>Множина</Text></TableCell> 
+      { headerRender() }
       </TableRow> 
       <TableRow>
-       <TableCell><SmallTableNounTitle>Називний</SmallTableNounTitle><Text>Kdo- хто, kaj -що</Text>
-       </TableCell>  
-       <TableCell><Text>o / e</Text></TableCell> 
-       <TableCell><Text>i</Text></TableCell> 
-       <TableCell><Text>a</Text></TableCell> 
+      { headerTitleRender("nominative") }  
+       { renderCell("neuter", "nominative") }
       </TableRow> 
       <TableRow>
-       <TableCell><SmallTableNounTitle>Родовий</SmallTableNounTitle><Text>Koga - кого, česa - чого</Text>
-       </TableCell>  
-       <TableCell><Text>ega + a</Text></TableCell> 
-       <TableCell><Text>ih + -</Text></TableCell> 
-       <TableCell><Text>ih + -</Text></TableCell> 
+      { headerTitleRender("genitive") } 
+       { renderCell("neuter", "genitive") }
       </TableRow>
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Давальний</SmallTableNounTitle><Text>Komu - кому, čemu - чому</Text>
-       </TableCell>  
-       <TableCell><Text>emu + u</Text></TableCell> 
-       <TableCell><Text>ima + oma/ ema(c, č, ž, š, j) </Text></TableCell> 
-       <TableCell><Text>im + om/ em (c, č, ž, š, j)</Text></TableCell> 
+      { headerTitleRender("dative") }  
+       { renderCell("neuter", "dative") }
       </TableRow> 
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Знахідний</SmallTableNounTitle><Text>Koga - кого, Kaj - що,Kam - куди</Text>
-       </TableCell>  
-       <TableCell><Text>o / e</Text></TableCell> 
-       <TableCell><Text>i</Text></TableCell> 
-       <TableCell><Text>a</Text></TableCell> 
+      { headerTitleRender("accusative") }  
+       { renderCell("neuter", "accusative") }
       </TableRow> 
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Орудний</SmallTableNounTitle><Text>Z kom - з ким,čim - з чим</Text>
-       </TableCell>  
-       <TableCell><Text>im + om/em (c, č, ž, š, j)</Text></TableCell> 
-       <TableCell><Text>ima + oma/ ema(c, č, ž, š, j)</Text></TableCell> 
-       <TableCell><Text>imi + i</Text></TableCell> 
+      { headerTitleRender("locative") }  
+       { renderCell("neuter", "locative") }
       </TableRow> 
       <TableRow> 
-      <TableCell><SmallTableNounTitle>Місцевий</SmallTableNounTitle><Text>Kje - де, o kom - про кого, o čim - про що</Text>
-       </TableCell>  
-       <TableCell><Text>em + u</Text></TableCell> 
-       <TableCell><Text>ih</Text></TableCell> 
-       <TableCell><Text>ih</Text></TableCell> 
+      { headerTitleRender("instrumental") }  
+       { renderCell("neuter", "instrumental") }
       </TableRow> 
     </Container>
     </ScrollView>  
   )
 }
-
 export default NounsDeclensions;
