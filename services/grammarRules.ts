@@ -66,9 +66,12 @@ export const nounDeclensionRules : IDeclensionNounsRules = {
 
 export const verbDeclension = [
 ["Особа", "еперішній час (інфінітив - 'ti', ( + se* )" , "Минулий час ( інфінітив - 'ti')" , "Майбутній час ( інфінітив - 'ti')"],
-["Jaz", "m" , "sem + L/La" , "bom + L/La"] , ["Ti", "š" , "si + L/La" , "boš + L/La"] ,
-["On, Ona, Ono", "-" , "je + L/La" , "bo + L/La"] ,["Midva, Midve / Medve", "va" , "sva + La/Li" , "bova + La/Li"] ,
-["Vidva, Vidve / Vedve", "ta" , "sta + La/Li" , "bosta + La/Li"] ,["Onadva, Onidve",  "ta" , "sta + La/Li" , "bosta + La/Li"] ,
-["Mi, Me", "mo" , "smo + Li/Le" , "bomo + Li/Le"] ,["Vi, Ve", "te" , "ste + Li/Le" , "boste + Li/Le"] ,["Oni , One* , Ona**", "jo" , "so + Li/Le/La" , "bojo/bodo + Li/Le/La"] ,
+["Jaz", "m" , "sem + L/La" , "bom + L/La"] , ["Ti", "š" , "si + L/La" , "boš + L/La"], 
+["On, Ona, Ono", "-" , "je + L/La" , "bo + L/La"],
+["Midva, Midve / Medve", "va" , "sva + La/Li" , "bova + La/Li"] ,["Vidva, Vidve / Vedve", "ta" , "sta + La/Li" , "bosta + La/Li"],
+["Onadva, Onidve",  "ta" , "sta + La/Li" , "bosta + La/Li"], 
+["Mi, Me", "mo" , "smo + Li/Le" , "bomo + Li/Le"],
+["Vi, Ve", "te" , "ste + Li/Le" , "boste + Li/Le"],
+["Oni , One* , Ona**", "jo" , "so + Li/Le/La" , "bojo/bodo + Li/Le/La"],
 ["Коли мова йде про групу тільки з жінок **тільки іменники середнього роду", "*Частка 'se' зазначає що дієслово має зворотну форму. (učiti se - навчатися)" ,
  "Умовна форма схожа на укр мову. Додаємо \"bi\" - Jaz bi vedel (я б бачив)  Заперечення формується як і у  теперішьому часі" , ""] ] 

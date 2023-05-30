@@ -70,7 +70,5 @@ export interface IDeclensionNounsRules {
        declensions:INounDeclension
        } 
    }
-
-
    export type headerOption = "masculine" | "feminine" | "neuter";
    export type sklon = "nominative" | "genitive" | "dative" | "accusative" | "locative" | "instrumental";

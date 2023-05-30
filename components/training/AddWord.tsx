@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
-import {SafeAreaView, StyleSheet, TextInput, View, Pressable, Button, Text, ScrollView} from 'react-native';
+import {SafeAreaView, StyleSheet, TextInput, View, Pressable, Button, Text, ScrollView,Modal } from 'react-native';
 import { IRootDictionary } from '../../services/types';
 import { baseDictionary } from '../../services/rootDictionary';
 import { H2, PressableButton } from '../../services/styles';
 import useUserData from '../../services/hooks/useUserData';
-import { addNewWord, getLocalDataName } from '../../services/functions';
+import { addNewWord, getLocalDataName, setLocalDataName } from '../../services/functions';
 import { ILocalStorageData } from '../../services/types';
+import ErrorModal from './ErrorModal';
+import useCommonDispatch from '../../services/hooks/useCommonDispatch';
+import { setUserDictionary } from '../../redux/slices/userSlice';
 
 const AddWord = () => {
 
- const emptyState = ({
+ const emptyState: IRootDictionary = {
     isIrregular:false, 
     sloWord: "",
     ukrWord: "",
@@ -18,11 +21,13 @@ const AddWord = () => {
         present: "",
         pastAndFuture: ""
     }
-})   
-const [newWord, setNewWord] = useState<any>(emptyState);
+}
+const [newWord, setNewWord] = useState<IRootDictionary>(emptyState);
 const [selection, setSelection] = useState<string[]>([]);
 const [password, setPassword] = useState<string>("");
 const user = useUserData();
+const dispatch = useCommonDispatch();
+const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 useEffect( () => {
     const categories: string[] = [];
     const categoriesSet = new Set();
@@ -41,20 +46,15 @@ useEffect( () => {
     })
 },[])
 
-useEffect( () => {
-
-})
 const uniqueLetters: string[] = ["č", "š", "ž", ]
-
 const addTheWord = ():void => {
   if (newWord.sloWord === "" || newWord.ukrWord === "" || newWord.category === "" ) {
-    if (newWord.irregular === true ) {
-      if (  newWord.irregulars.present === "" || newWord.irregulars.pastAndFuture === "") {
-        return
-      }
-      return
-    }
+    setIsModalVisible(true);
     return
+  }
+  if (newWord.isIrregular === true && (newWord.irregulars.present === "" || newWord.irregulars.pastAndFuture === "") ) {
+    setIsModalVisible(true);
+      return
   }
   const sendDataToPhone = [...user.dictionary, ...[newWord]];
   const addedgWord:ILocalStorageData = {
@@ -63,6 +63,7 @@ const addTheWord = ():void => {
     userDictionary: sendDataToPhone
   }; 
   addNewWord(addedgWord);
+  dispatch(setUserDictionary(sendDataToPhone));
   setNewWord(emptyState);
 }
 
@@ -75,8 +76,8 @@ const adjustNewWord = ( key:string, value: string ): void => {
 }
 
 const irregularAdder = (key: string, value: string):void => {
-    const irrecularValue = {...newWord.irregulars , [key]: value};
-    const newState = {...newWord, irregulars:irrecularValue };
+    const irregularValue = {...newWord.irregulars , [key]: value};
+    const newState = {...newWord, irregulars:irregularValue };
     setNewWord(newState);
 }
 
@@ -85,6 +86,7 @@ const backgroundButtomRenderNegative = newWord.isIrregular ? "#71D5E4" : "green"
     return(
         <ScrollView nestedScrollEnabled = {true}>
         <SafeAreaView>
+          { isModalVisible && <ErrorModal setModalVisible={setIsModalVisible} isVisible={isModalVisible}/> }
          <View style={styles.rowWrapper}>
           { uniqueLetters.map( (letter:string, idx:number) => {
             return (
