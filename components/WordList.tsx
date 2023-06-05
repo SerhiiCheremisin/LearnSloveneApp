@@ -32,14 +32,11 @@ const WordList = () => {
       wordList.length === 0 ?
       <ActivityIndicator size="large" color="#00ff00" /> 
       :
-      <SafeAreaView style={styles.listStyle}>
-       <FlatList
-        data={wordList}
-        renderItem={({item}) => <WordListItem item = {item}/>}
-        keyExtractor={item => item.sloWord}
-      />
-      </SafeAreaView>
-
+      <ScrollView contentContainerStyle={styles.listStyle}>
+       { wordList.map( (item, idx) => {
+        return < WordListItem key = {idx} item = {item}/>
+       }) }
+      </ScrollView>
      } 
     </View>
   )
@@ -48,7 +45,7 @@ const WordList = () => {
 const styles = StyleSheet.create({
     scrollView: {
         paddingTop: 50,
-        paddingBottom: 250,
+        paddingBottom: 110,
         backgroundColor: "#A1DBF1",
     },
     listStyle : {

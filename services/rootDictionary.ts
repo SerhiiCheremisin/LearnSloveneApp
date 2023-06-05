@@ -342,7 +342,7 @@ export const baseDictionary:IRootDictionary[] =  [
     {sloWord: 'žlička', ukrWord: 'чайна ложка	', isIrregular: false, category: 'Їжа'},  
     {sloWord: 'krožnik', ukrWord: 'тарілка', isIrregular: false, category: 'Їжа'},  
     {sloWord: 'skodelica', ukrWord: 'чашка', isIrregular: false, category: 'Їжа'},
-    {sloWord: 'steklenica', ukrWord: 'їжа', isIrregular: false, category: 'Їжа'},  
+    {sloWord: 'steklenica', ukrWord: 'скляна плашка', isIrregular: false, category: 'Їжа'},  
     {sloWord: 'Dober tek', ukrWord: 'смачного', isIrregular: false, category: 'Фрази'},  
     {sloWord: 'svež', ukrWord: 'свіже', isIrregular: false, category: 'Їжа'},
     {sloWord: 'hruška', ukrWord: 'груша', isIrregular: false, category: 'Їжа'},  
