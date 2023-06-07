@@ -26,7 +26,7 @@ const renderCell = (gender:headerOption, sklon: sklon) => {
      })
 }
   return (
-   <ScrollView style={{paddingTop: 50}}>
+    <ScrollView style={{paddingTop: "7%"}}>
     <Container style={{marginBottom: 40}}> 
       <ReturnGrammarButton/>
     <TableNounTitleBlock><TableNounTitle>Чоловічий рід</TableNounTitle></TableNounTitleBlock>

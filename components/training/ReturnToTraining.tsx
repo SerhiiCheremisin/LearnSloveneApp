@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     returnButton : {
       width: 150,
       height: 50,
-      backgroundColor: "#71D5E4",
+      backgroundColor: "#c8772f",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",

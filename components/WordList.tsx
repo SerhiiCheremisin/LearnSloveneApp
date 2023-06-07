@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     scrollView: {
         paddingTop: 50,
         paddingBottom: 110,
-        backgroundColor: "#A1DBF1",
+        backgroundColor: "#dc9d71",
     },
     listStyle : {
         display: 'flex',
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       paddingHorizontal: 25,
       height: 100,
-      backgroundColor: "#00B6BC",
+      backgroundColor: "#a8692a",
       marginBottom: 15
     }
 })

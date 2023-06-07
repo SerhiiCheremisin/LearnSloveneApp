@@ -6,7 +6,7 @@ import ReturnGrammarButton from './ReturnGrammarButton';
 
 const ToBeVerb = () => {
   return (
-   <ScrollView style={{paddingTop: 50}}>
+    <ScrollView style={{paddingTop: "7%"}}>
      <Container style={{paddingBottom: 40}}>
       <ReturnGrammarButton/> 
       <GrammarText>ДІЄСЛОВА БУТИ ТА МАТИ (ПОЗИТИВНА ТА НЕГАТИВНА ФОРМА ДЛЯ ТЕПЕРІШНЬОГО ТА МИНУЛОГО ЧАСУ)</GrammarText>

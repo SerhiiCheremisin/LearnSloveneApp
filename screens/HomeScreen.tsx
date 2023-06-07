@@ -39,18 +39,18 @@ const HomeScreen = () => {
     <NavigationContainer>
        <Tab.Navigator screenOptions={({route}) => ({
           headerShown: false,
-          tabBarInactiveTintColor: 'gray',
-          tabBarActiveTintColor: 'red',
-        })} >
+          tabBarInactiveTintColor: '#1c130f',
+          tabBarActiveTintColor: '#dc9d71',
+          })} >
           <Tab.Screen name="Словник" component={VocabularyScreen} options={{ tabBarIcon: () => {
              return(
               <Image
-              style={{ width: 20, height: 20 }}
+              style={{ width: 20, height: 20}}
               source={require('./../assets/dictionary.png')}
             />
              ) 
           } }}/>
-           <Tab.Screen name="Тренування слів" component={TrainingScreen} options={{ tabBarIcon: () => {
+           <Tab.Screen name="Тренування" component={TrainingScreen} options={{ tabBarIcon: () => {
              return(
               <Image
               style={{ width: 20, height: 20 }}

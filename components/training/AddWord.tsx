@@ -81,8 +81,8 @@ const irregularAdder = (key: string, value: string):void => {
     setNewWord(newState);
 }
 
-const backgroundButtomRender = newWord.isIrregular ? "green" : "#71D5E4";
-const backgroundButtomRenderNegative = newWord.isIrregular ? "#71D5E4" : "green";
+const backgroundButtomRender = newWord.isIrregular ? "green" : "#dc9d71";
+const backgroundButtomRenderNegative = newWord.isIrregular ? "#dc9d71" : "green";
     return(
         <ScrollView nestedScrollEnabled = {true}>
         <SafeAreaView>
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     button: {
       width: 70,
       height: 30,
-      backgroundColor: "#71D5E4",
+      backgroundColor: "#dc9d71",
       justifyContent:"center",
       alignItems:"center",
       borderRadius: 10,
@@ -181,14 +181,14 @@ const styles = StyleSheet.create({
     choseCategotyButton : {
         width: "100%",
         height: 50,
-        backgroundColor: "#71D5E4",
+        backgroundColor: "#dc9d71",
         marginBottom: 10,
         justifyContent:"center",
         alignItems:"center", 
         borderRadius: 10,
     },
     cateoryWrapper : {
-        backgroundColor: "#fff",
+        backgroundColor: "#a8692a",
         height: 230,
         paddingVertical: 10,
         paddingHorizontal: 10,

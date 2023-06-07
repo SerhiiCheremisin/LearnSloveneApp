@@ -6,7 +6,7 @@ export const Container = styled.View`
  flex: 1;
  justify-content: center;
  align-items: center;
- background-color: #A1DBF1;
+ background-color: #dc9d71;
 `
 export const TextField = styled.TextInput`
  border-radius: 50px;
@@ -55,7 +55,7 @@ export const Card = styled.View`
   align-items: center;
   border-radius: 10px;
   margin-bottom: 20px;
-  backgroundColor: #71D5E4;
+  backgroundColor: #a8692a;
 `
 
 export const H2 = styled.Text`
@@ -82,7 +82,7 @@ export const WordItem = styled.View`
   align-items: center;
   margin-bottom: 10px;
   flex-direction: column;
-  background-color: #71D5E4;
+  background-color: #a8692a;
 `
 export const GrammarText = styled.Text`
 font-size: 15px;
@@ -101,6 +101,7 @@ export const WordAdder = styled.View`
  height: 50px;
  border: 1px solid black;
  margin-top: 20px;
+ border-radius: 10px;
 `
 
 export const TableRow = styled.View`
@@ -161,7 +162,7 @@ export const MyDictionaryCard = styled.View`
   align-items: center;
   margin-bottom: 10px;
   border: 1px solid black;
-  background-color: #A1DBF1;
+  background-color: #dc9d71;
   border-radius: 10px;
   justify-content: center;
   padding: 0 25px
@@ -172,7 +173,7 @@ export const ExitButton = styled.Pressable`
   height: 50px;
   color: black;
   border-radius: 15px;
-  background-color: #71D5E4;
+  background-color: #9db4c0;
   justify-content: center;
   align-items: center;
 `

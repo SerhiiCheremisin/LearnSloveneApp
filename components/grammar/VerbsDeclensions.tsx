@@ -9,7 +9,7 @@ import { TableRow, TableCell } from '../../services/styles';
 const VerbsDeclensions = () => {
 
   return (
-   <ScrollView style={{paddingTop: 40}}>
+   <ScrollView style={{paddingTop: "7%"}}>
     <Container style={{marginBottom: 40}}> 
       <ReturnGrammarButton/>
        { verbDeclension.map( (el, idx) => {
