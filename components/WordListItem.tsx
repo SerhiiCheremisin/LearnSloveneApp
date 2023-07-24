@@ -56,7 +56,6 @@ const WordListItem = ( {item}:IWordListItemProps ) => {
         <WordAdder style={{backgroundColor: "#5bba6f"}}><Text>{`У словнику`}</Text></WordAdder>   
       </Pressable> }
      </WordItem>
-
   )
 }
 

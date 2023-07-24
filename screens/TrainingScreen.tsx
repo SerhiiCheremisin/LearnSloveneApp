@@ -96,8 +96,8 @@ switch(activeTraining ) {
 const styles = StyleSheet.create({
   trainingButton : {
     width: 250,
-    height: 50,
-    backgroundColor: "#a8692a",
+    height: 80,
+    backgroundColor: "#222629",
     borderRadius: 10,
     display: "flex",
     justifyContent: "center",
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     display: "flex",
     paddingTop: 50,
     paddingBottom: 250,
-    backgroundColor: "#a8692a",
+    backgroundColor: '#474A4F',
     paddingHorizontal: 10
    }
 })

@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     cateoryWrapper : {
-        backgroundColor: "#a8692a",
+        backgroundColor: "#474A4F",
         height: 230,
         paddingVertical: 10,
         paddingHorizontal: 10,

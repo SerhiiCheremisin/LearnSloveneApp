@@ -26,8 +26,8 @@ const renderCell = (gender:headerOption, sklon: sklon) => {
      })
 }
   return (
-    <ScrollView style={{paddingTop: "7%"}}>
-    <Container style={{marginBottom: 40}}> 
+    <Container> 
+      <ScrollView style={{paddingTop: "7%"}}>
       <ReturnGrammarButton/>
     <TableNounTitleBlock><TableNounTitle>Чоловічий рід</TableNounTitle></TableNounTitleBlock>
       <TableRow>
@@ -113,8 +113,8 @@ const renderCell = (gender:headerOption, sklon: sklon) => {
       { headerTitleRender("instrumental") }  
        { renderCell("neuter", "instrumental") }
       </TableRow> 
+      </ScrollView> 
     </Container>
-    </ScrollView>  
   )
 }
 export default NounsDeclensions;

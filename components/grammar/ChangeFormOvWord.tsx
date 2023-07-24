@@ -5,8 +5,8 @@ import { Container, H2, H4, H3 } from '../../services/styles';
 
 const ChangeFormOvWord = () => {
   return (
+    <Container>
     <ScrollView style={{paddingTop: "7%"}}>
-     <Container>
      <ReturnGrammarButton/>  
          <H2 style={{paddingBottom: 10}}>Ось список найпоширеніших:</H2>  
          <H4>do - (до)</H4>
@@ -75,9 +75,9 @@ const ChangeFormOvWord = () => {
          <H3>raz + pustiti = razpustiti (розчинятися)</H3>
          <H3>s + pustiti = spustiti (розпускати, відпустити)</H3>
          <H3>za + pustiti = zapustiti (залишити, відмовитися від)</H3>
-
+         </ScrollView>
      </Container>   
-    </ScrollView>
+
   )
 }
 

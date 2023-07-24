@@ -6,8 +6,9 @@ import ReturnGrammarButton from './ReturnGrammarButton';
 
 const ToBeVerb = () => {
   return (
+    <Container>
     <ScrollView style={{paddingTop: "7%"}}>
-     <Container style={{paddingBottom: 40}}>
+
       <ReturnGrammarButton/> 
       <GrammarText>ДІЄСЛОВА БУТИ ТА МАТИ (ПОЗИТИВНА ТА НЕГАТИВНА ФОРМА ДЛЯ ТЕПЕРІШНЬОГО ТА МИНУЛОГО ЧАСУ)</GrammarText>
       <TableRow>
@@ -126,8 +127,9 @@ const ToBeVerb = () => {
         <TableCellLarge><Text>bojo, bodo</Text></TableCellLarge>
         <TableCellLarge><Text>ne bojo, ne bodo</Text></TableCellLarge>
       </TableRow>
+      </ScrollView>
      </Container>
-   </ScrollView>
+
   )
 }
 

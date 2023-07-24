@@ -8,7 +8,7 @@ const App = () => {
 
   return (
       <Provider store={reduxStore}>
-        <StatusBar backgroundColor="#dc9d71"/>
+        <StatusBar backgroundColor="#474A4F"/>
        <HomeScreen/>
       </Provider>
   );

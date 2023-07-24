@@ -6,7 +6,7 @@ export const Container = styled.View`
  flex: 1;
  justify-content: center;
  align-items: center;
- background-color: #dc9d71;
+ background-color: #474A4F;
 `
 export const TextField = styled.TextInput`
  border-radius: 50px;
@@ -37,7 +37,7 @@ export const PressableButton = styled.Pressable`
 `
 
 export const CardWrapper = styled.View`
-  width: 400px;
+  width: 100%;
   height: 700px;
   flex-direction: column;
   gap: 30px;
@@ -55,7 +55,7 @@ export const Card = styled.View`
   align-items: center;
   border-radius: 10px;
   margin-bottom: 20px;
-  backgroundColor: #a8692a;
+  backgroundColor: #222629;
 `
 
 export const H2 = styled.Text`
@@ -74,7 +74,7 @@ export const BigText = styled.Text`
 font-size: 30px;
 `
 export const WordItem = styled.View`
-  width: 350px;
+  width: 95%;
   height: 300px;
   border: 2px solid black;
   border-radius: 15px;
@@ -82,7 +82,7 @@ export const WordItem = styled.View`
   align-items: center;
   margin-bottom: 10px;
   flex-direction: column;
-  background-color: #a8692a;
+  background-color: #222629;
 `
 export const GrammarText = styled.Text`
 font-size: 15px;
