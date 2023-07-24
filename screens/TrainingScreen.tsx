@@ -12,6 +12,7 @@ import ReturnToTraining from '../components/training/ReturnToTraining';
 import MyDictionary from '../components/training/MyDictionary';
 import WordsTraining from '../components/training/WordsTraining';
 import AddWord from '../components/training/AddWord';
+import WordConstructor from '../components/training/WordConstructor';
 
 const TrainingScreen = () =>  {
 
@@ -56,6 +57,9 @@ switch(activeTraining ) {
           <Pressable onPress={() => viewHandler("wordsTraining")} style={styles.trainingButton}>
           <Text>{`Тренування слів`}</Text>
           </Pressable>
+          <Pressable onPress={() => viewHandler("constructor")} style={styles.trainingButton}>
+          <Text>{`Конструктор слів`}</Text>
+          </Pressable>
           <Pressable onPress={() => viewHandler("addWord")} style={styles.trainingButton}>
           <Text>{`Додати своє слово`}</Text>
           </Pressable>
@@ -80,6 +84,12 @@ switch(activeTraining ) {
     <AddWord/>
     </ViewTemplate>
   );
+  case "constructor" :
+    return (
+      <ViewTemplate>
+      <WordConstructor/>
+      </ViewTemplate>
+    );
   }
 }
  
