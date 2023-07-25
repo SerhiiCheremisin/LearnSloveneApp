@@ -55,7 +55,7 @@ export const Card = styled.View`
   align-items: center;
   border-radius: 10px;
   margin-bottom: 20px;
-  backgroundColor: #222629;
+  backgroundColor: #ffffff;
 `
 
 export const H2 = styled.Text`
@@ -82,7 +82,7 @@ export const WordItem = styled.View`
   align-items: center;
   margin-bottom: 10px;
   flex-direction: column;
-  background-color: #222629;
+  background-color: #ffffff;
 `
 export const GrammarText = styled.Text`
 font-size: 15px;
@@ -162,7 +162,7 @@ export const MyDictionaryCard = styled.View`
   align-items: center;
   margin-bottom: 10px;
   border: 1px solid black;
-  background-color: #dc9d71;
+  background-color: #FAD9C1;
   border-radius: 10px;
   justify-content: center;
   padding: 0 25px

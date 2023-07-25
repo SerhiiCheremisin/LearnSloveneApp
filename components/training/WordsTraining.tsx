@@ -81,13 +81,12 @@ const motivationText = ():string => {
         <View>
           <View style={styles.respondView}>
            <H2>{`${trainigDictionary[pace]?.sloWord.toUpperCase()}`}</H2>
-           <View>
+
             {answers.map( (el: IRootDictionary, idx: number) => {
-            return(
-             <AnswerCard key={idx} currentWord={el} respondFunction={answerHandler} correctRespond={trainigDictionary[pace].ukrWord}/>
-            )
+             return(
+              <AnswerCard key={idx} currentWord={el} respondFunction={answerHandler} correctRespond={trainigDictionary[pace].ukrWord}/>
+             )
         })}
-       </View>
         </View>
         </View>
     )
@@ -117,6 +116,9 @@ const styles = StyleSheet.create({
   respondView: {
     alignItems: "center", 
     paddingTop: 25,
+  }, row : {
+   flexDirection: "row",
+   gap: 10
   }
 })
 

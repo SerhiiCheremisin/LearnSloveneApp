@@ -6,7 +6,7 @@ import { IRootDictionary } from '../../services/types';
 interface ISingleCardProps {
     currentWord : IRootDictionary,
     respondFunction: Function,
-    correctRespond: string
+    correctRespond: string,
 }
 
 const AnswerCard = ( { currentWord, respondFunction, correctRespond } : ISingleCardProps) => {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       alignItems: "center",
       justifyContent: "center",
-      marginBottom:15
+      marginBottom:15, 
     }
   })
 export default AnswerCard;

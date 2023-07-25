@@ -49,11 +49,11 @@ const WordListItem = ( {item}:IWordListItemProps ) => {
         { item.isIrregular && <Text>{ `теперешній час ${item.irregulars.present} , майбутній та минулий час ${item.irregulars.pastAndFuture}` }</Text> }
         { !isInDictionaryCheck ? 
           <Pressable onPress = {dictionaryHandler}>
-          <WordAdder style={{backgroundColor: "#f05423"}}><Text>{`Додати до мого словника`}</Text></WordAdder>   
+          <WordAdder style={{backgroundColor: "green"}}><Text>{`Додати до мого словника`}</Text></WordAdder>   
         </Pressable> 
         : 
         <Pressable onPress = {dictionaryHandler}>
-        <WordAdder style={{backgroundColor: "#5bba6f"}}><Text>{`У словнику`}</Text></WordAdder>   
+        <WordAdder style={{backgroundColor: "teal"}}><Text>{`У словнику`}</Text></WordAdder>   
       </Pressable> }
      </WordItem>
   )

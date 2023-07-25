@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   trainingButton : {
     width: 250,
     height: 80,
-    backgroundColor: "#222629",
+    backgroundColor: "#ffffff",
     borderRadius: 10,
     display: "flex",
     justifyContent: "center",

@@ -38,3 +38,7 @@ export const setLocalDataName = async (value:ILocalStorageData) => {
    export const shuffleArray = (array: IRootDictionary[]) => {
     return [...array].sort(() => Math.random() - 0.5);
    }
+
+   export const shuffleStringArray = (array: string[]) => {
+    return [...array].sort(() => Math.random() - 0.5);
+   }

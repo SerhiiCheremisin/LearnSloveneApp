@@ -40,7 +40,7 @@ const MyDictionary = () => {
     dispatch(setUserDictionary(newDictionary));
   } 
 
-  const CardList = () => {
+  const CardList = ():JSX.Element => {
     return (
         <>
         <Pressable onPress={() => setActiveCategory("")} style={styles.backButton}>
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 150,
     height: 50,
-    backgroundColor: "#fff",
+    backgroundColor: "green",
     borderRadius: 10,
     marginBottom: 15
   }
