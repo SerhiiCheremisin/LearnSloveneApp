@@ -2,7 +2,7 @@ import { ActivityIndicator, View, Text, StyleSheet, Pressable } from "react-nati
 import { useState, useEffect } from "react";
 import { IRootDictionary } from "../../services/types";
 import useUserData from "../../services/hooks/useUserData";
-import { shuffleStringArray, shuffleArray } from "../../services/functions";
+import { shuffleArray } from "../../services/functions";
 import SingleLetter from "./SingleLetter";
 
 const WordConstructor = () => {
@@ -26,8 +26,7 @@ const WordConstructor = () => {
       }
 
     const makeLetterArray = ():void => {
-        const letterArray: string[] = questions[wordCount]?.sloWord.split(''); 
-        // const shuffled = shuffleStringArray([...letterArray])
+        const letterArray: string[] = questions[wordCount]?.sloWord.split('').sort( () => Math.random() - 0.5); 
         setLetters(letterArray);
     }    
          useEffect(() => {
