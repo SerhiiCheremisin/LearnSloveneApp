@@ -1,30 +1,29 @@
 import React from 'react'
-import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
-import { Container } from '../../services/styles';
+import {  ScrollView } from 'react-native';
 import ReturnGrammarButton from './ReturnGrammarButton';
 import { verbDeclension } from '../../services/grammarRules';
-
-import { TableRow, TableCell } from '../../services/styles';
+import ViewContainer from '../generalComponent/ViewContainer';
+import { scrollViewMargin, tableCellMedium, tableRow } from '../../services/styles/views';
+import { Text , Box } from "@react-native-material/core";
 
 const VerbsDeclensions = () => {
 
   return (
-    <Container> 
-   <ScrollView style={{paddingTop: "7%"}}>
-
+    <ViewContainer> 
+   <ScrollView style={scrollViewMargin}>
       <ReturnGrammarButton/>
        { verbDeclension.map( (el, idx) => {
              return (
-              <TableRow key={idx}>
-              <TableCell><Text>{el[0]}</Text></TableCell>  
-              <TableCell><Text>{el[1]}</Text></TableCell> 
-              <TableCell><Text>{el[2]}</Text></TableCell> 
-              <TableCell><Text>{el[3]}</Text></TableCell> 
-             </TableRow> 
+              <Box style={tableRow} key={idx}>
+              <Box style={tableCellMedium}><Text>{el[0]}</Text></Box>  
+              <Box style={tableCellMedium}><Text>{el[1]}</Text></Box> 
+              <Box style={tableCellMedium}><Text>{el[2]}</Text></Box> 
+              <Box style={tableCellMedium}><Text>{el[3]}</Text></Box>
+              </Box> 
              )
        }) }
            </ScrollView> 
-    </Container>
+    </ViewContainer>
   )
 }
 

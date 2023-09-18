@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react';
-import {SafeAreaView, StyleSheet, TextInput, View, Pressable, Button, Text, ScrollView,Modal } from 'react-native';
+import { SafeAreaView, TextInput, ScrollView } from 'react-native';
 import { IRootDictionary } from '../../services/types';
 import { baseDictionary } from '../../services/rootDictionary';
-import { H2, PressableButton } from '../../services/styles';
 import useUserData from '../../services/hooks/useUserData';
-import { addNewWord, getLocalDataName, setLocalDataName } from '../../services/functions';
+import { addNewWord, getLocalDataName } from '../../services/functions';
 import { ILocalStorageData } from '../../services/types';
-import ErrorModal from './ErrorModal';
 import useCommonDispatch from '../../services/hooks/useCommonDispatch';
 import { setUserDictionary } from '../../redux/slices/userSlice';
+import { Pressable, Text, Box } from "@react-native-material/core";
+//styles
+import { inputView, rowWrapperView, categoryWrapper, addwordWrapper } from '../../services/styles/views';
+import { returnButton, singleAdderButton } from '../../services/styles/buttons';
+import { h2 } from '../../services/styles/typography';
+
+import ErrorModal from './ErrorModal';
 
 const AddWord = () => {
 
@@ -28,6 +33,7 @@ const [password, setPassword] = useState<string>("");
 const user = useUserData();
 const dispatch = useCommonDispatch();
 const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+
 useEffect( () => {
     const categories: string[] = [];
     const categoriesSet = new Set();
@@ -87,113 +93,67 @@ const backgroundButtomRenderNegative = newWord.isIrregular ? "#ffffff" : "green"
         <ScrollView nestedScrollEnabled = {true}>
         <SafeAreaView>
           { isModalVisible && <ErrorModal setModalVisible={setIsModalVisible} isVisible={isModalVisible}/> }
-         <View style={styles.rowWrapper}>
+         <Box style={rowWrapperView}>
           { uniqueLetters.map( (letter:string, idx:number) => {
             return (
                 <Pressable key={idx}
-                 style={styles.button}
+                 style={singleAdderButton}
                  onPress={() => addUniqueLetter(letter)}
                  >
                  <Text>{letter.toLocaleUpperCase()}</Text>
                 </Pressable>    
             ) }) }
-         </View> 
+         </Box> 
          <TextInput
-         style={styles.input}
+         style={inputView}
          placeholder="Словенське слово"
          onChangeText={(value) => adjustNewWord("sloWord", value)}
          value={newWord.sloWord}
       />
       <TextInput
-         style={styles.input}
+         style={inputView}
          onChangeText={(value) => adjustNewWord("ukrWord", value)}
          value={newWord.ukrWord}
          placeholder="Переклад на українську"
       />
-      <View>
-        { newWord.category === "" ? <H2>Оберіть категорію</H2> : <H2>{`Обрана категорія: ${newWord.category}`}</H2> }
-        <ScrollView nestedScrollEnabled = {true} style={styles.cateoryWrapper}>
+      <Box>
+        { newWord.category === "" ? <Text style={h2}>Оберіть категорію</Text> : <Text style={h2}>{`Обрана категорія: ${newWord.category}`}</Text> }
+        <ScrollView nestedScrollEnabled = {true} style={addwordWrapper}>
            { selection.map( (el:string, idx:number) => {
                 return(
-                    <Pressable onPress={() => setNewWord( {...newWord, category: el}) } style={styles.choseCategotyButton} key={idx}>
+                    <Pressable onPress={() => setNewWord( {...newWord, category: el}) } style={categoryWrapper} key={idx}>
                         <Text>{el}</Text>
                     </Pressable>
                 )
            })} 
         </ScrollView>
-      </View>
-        <View style={styles.rowWrapper}>
+      </Box>
+        <Box style={rowWrapperView}>
             <Text>Неправильне дієслово?</Text>
-            <Pressable onPress={() => setNewWord({...newWord, isIrregular: true})} style={[styles.pressableButton, {backgroundColor: backgroundButtomRender}]}><Text>Так</Text></Pressable>
-            <Pressable onPress={() => setNewWord({...newWord, isIrregular: false})} style={[styles.pressableButton, {backgroundColor: backgroundButtomRenderNegative}]}><Text>Ні</Text></Pressable>
-        </View>
+            <Pressable onPress={() => setNewWord({...newWord, isIrregular: true})} style={[singleAdderButton, {backgroundColor: backgroundButtomRender}]}><Text>Так</Text></Pressable>
+            <Pressable onPress={() => setNewWord({...newWord, isIrregular: false})} style={[singleAdderButton, {backgroundColor: backgroundButtomRenderNegative}]}><Text>Ні</Text></Pressable>
+        </Box>
         { newWord.isIrregular === true &&
-                <View>
+                <Box>
                 <TextInput
-                 style={styles.input}
+                 style={inputView}
                  onChangeText={(value) => irregularAdder( "present" , value)}
                  value={newWord.irregulars?.present}
                  placeholder="Теперішній час"
               />
                     <TextInput
-                 style={styles.input}
+                 style={inputView}
                  onChangeText={(value) => irregularAdder("pastAndFuture", value)}
                  value={newWord.irregulars?.pastAndFuture}
                  placeholder="Минулий та майбутній"
               />
-                </View> }
-            <PressableButton onPress={addTheWord} style={{marginTop: 25, marginBottom: 55}}>
+                </Box> }
+            <Pressable style={returnButton} onPress={addTheWord}>
              <Text>Додати слово</Text>    
-            </PressableButton>    
+            </Pressable>    
         </SafeAreaView>
         </ScrollView>
     )
 }
-
-const styles = StyleSheet.create({
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-    },
-    rowWrapper: {
-     display: "flex",
-     flexDirection: "row",
-     justifyContent: "space-around",
-        },
-    button: {
-      width: 70,
-      height: 30,
-      backgroundColor: "#ffffff",
-      justifyContent:"center",
-      alignItems:"center",
-      borderRadius: 10,
-    },
-    pressableButton: {
-      width: 70,
-      height: 30,
-      display: "flex",
-      justifyContent:"center",
-      alignItems:"center",
-      borderRadius: 10
-    },
-    choseCategotyButton : {
-        width: "100%",
-        height: 50,
-        backgroundColor: "#ffffff",
-        marginBottom: 10,
-        justifyContent:"center",
-        alignItems:"center", 
-        borderRadius: 10,
-    },
-    cateoryWrapper : {
-        backgroundColor: "#474A4F",
-        height: 230,
-        paddingVertical: 10,
-        paddingHorizontal: 10,
-        marginBottom: 25
-    } 
-});
 
 export default AddWord;

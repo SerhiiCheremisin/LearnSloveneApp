@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Text, StyleSheet, Pressable, ScrollView } from 'react-native';
-import { Container } from '../services/styles';
+import { ScrollView } from 'react-native';
+import { Pressable, Text } from "@react-native-material/core";
 import { getLocalDataName } from '../services/functions';
 import { ILocalStorageData } from '../services/types';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
 import { setUserDictionary } from '../redux/slices/userSlice';
 import useUserData from '../services/hooks/useUserData';
+import { basicTrainingTempalte } from '../services/styles/views';
+import { chooserButton } from '../services/styles/buttons';
 
 //components
 import ReturnToTraining from '../components/training/ReturnToTraining';
@@ -13,6 +15,7 @@ import MyDictionary from '../components/training/MyDictionary';
 import WordsTraining from '../components/training/WordsTraining';
 import AddWord from '../components/training/AddWord';
 import WordConstructor from '../components/training/WordConstructor';
+import ViewContainer from '../components/generalComponent/ViewContainer';
 
 const TrainingScreen = () =>  {
 
@@ -31,9 +34,9 @@ const viewHandler = (page: string):void => {
   setActiveTraining(page)
 }
 
-const ViewTemplate = ( {children} ) => {
+const ViewTemplate = ( {children}:any ) => {
 return(
-  <ScrollView style={styles.basicView}>
+  <ScrollView style={basicTrainingTempalte}>
   <ReturnToTraining getBack={setActiveTraining}/>
   {children}
  </ScrollView>
@@ -44,26 +47,26 @@ switch(activeTraining ) {
   case "" :
     if (dictionary.dictionary.length <= 9) {
       return (
-        <Container>
+        <ViewContainer>
           <Text>{`У Вас замало слів для тренувань, наразі у Вас всього ${dictionary.dictionary.length} слів у словнику`}</Text>
-        </Container>
+        </ViewContainer>
       )
     } else {
       return (
-        <Container>
-          <Pressable onPress={() => viewHandler("dictionary")} style={styles.trainingButton}>
+        <ViewContainer>
+          <Pressable onPress={() => viewHandler("dictionary")} style={chooserButton}>
           <Text>{`Мій словник`}</Text>
           </Pressable>
-          <Pressable onPress={() => viewHandler("wordsTraining")} style={styles.trainingButton}>
+          <Pressable onPress={() => viewHandler("wordsTraining")} style={chooserButton}>
           <Text>{`Тренування слів`}</Text>
           </Pressable>
-          <Pressable onPress={() => viewHandler("constructor")} style={styles.trainingButton}>
+          <Pressable onPress={() => viewHandler("constructor")} style={chooserButton}>
           <Text>{`Конструктор слів`}</Text>
           </Pressable>
-          <Pressable onPress={() => viewHandler("addWord")} style={styles.trainingButton}>
+          <Pressable onPress={() => viewHandler("addWord")} style={chooserButton}>
           <Text>{`Додати своє слово`}</Text>
           </Pressable>
-        </Container>
+        </ViewContainer>
       )
     }
   case "dictionary" :
@@ -93,25 +96,4 @@ switch(activeTraining ) {
   }
 }
  
-const styles = StyleSheet.create({
-  trainingButton : {
-    width: 250,
-    height: 80,
-    backgroundColor: "#ffffff",
-    borderRadius: 10,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 15,
-    padding: 5
-  },
-  basicView : {
-    display: "flex",
-    paddingTop: 50,
-    paddingBottom: 250,
-    backgroundColor: '#474A4F',
-    paddingHorizontal: 10
-   }
-})
-
 export default TrainingScreen;

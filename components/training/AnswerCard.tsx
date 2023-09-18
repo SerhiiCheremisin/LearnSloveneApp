@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import { H3 } from '../../services/styles';
-import { StyleSheet, Pressable} from 'react-native';
+import { Pressable, Text } from "@react-native-material/core";
 import { IRootDictionary } from '../../services/types';
+import { answerButton } from '../../services/styles/buttons';
+import { h3 } from '../../services/styles/typography';
 
 interface ISingleCardProps {
     currentWord : IRootDictionary,
@@ -33,20 +34,10 @@ const AnswerCard = ( { currentWord, respondFunction, correctRespond } : ISingleC
     } 
 
   return (
-    <Pressable onPress={() => respondHandler(currentWord?.ukrWord)} style={[styles.answerButton, customBackground]}>
-    <H3>{currentWord?.ukrWord.toUpperCase()}</H3>
+    <Pressable onPress={() => respondHandler(currentWord?.ukrWord)} style={[answerButton, customBackground]}>
+    <Text style={h3}>{currentWord?.ukrWord.toUpperCase()}</Text>
    </Pressable>
   )
 }
-
-const styles = StyleSheet.create({
-    answerButton: {
-      width: 300,
-      height:100,
-      borderRadius: 10,
-      alignItems: "center",
-      justifyContent: "center",
-      marginBottom:15, 
-    }
-  })
+ 
 export default AnswerCard;

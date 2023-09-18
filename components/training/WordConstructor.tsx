@@ -1,9 +1,13 @@
-import { ActivityIndicator, View, Text, StyleSheet, Pressable } from "react-native";
+import { ActivityIndicator } from "react-native";
 import { useState, useEffect } from "react";
 import { IRootDictionary } from "../../services/types";
 import useUserData from "../../services/hooks/useUserData";
 import { shuffleArray } from "../../services/functions";
 import SingleLetter from "./SingleLetter";
+import { Text, Box } from "@react-native-material/core";
+
+import { letterAnswerBox } from "../../services/styles/views";
+import { h2 } from "../../services/styles/typography";
 
 const WordConstructor = () => {
 
@@ -62,65 +66,20 @@ const WordConstructor = () => {
       }
 
   return(
-    <View style={styles.constructorWrapper}>
-      <View style={styles.button}>
-      <Text style={styles.text}>{questions[wordCount]?.ukrWord.toUpperCase()}</Text>
-      </View>  
-      <View style={[styles.resultField, answerBG ]}>
+    <Box style={ { alignItems: "center", display: "flex", justifyContent: "center"} }>
+      <Text style={h2}>{questions[wordCount]?.ukrWord.toUpperCase()}</Text>
+      <Box style={[letterAnswerBox, answerBG ]}>
        <Text>{`${answer}`}</Text>
-      </View>
-      <View style={styles.letterBox}>
+      </Box>
+      <Box style={letterAnswerBox}>
        { Array.isArray(letters) && letters.map( (letter:string, idx:number) => {
             return (
                <SingleLetter key={idx} letter={letter} setAnswer={setAnswer} answerIndex={answerIndex} setAnswerIndex={setAnswerIndex} questions={questions} wordCount={wordCount} />
             )
            }) }
-     </View>
-    </View>
+     </Box>
+    </Box>
   )
 }
-
-const styles = StyleSheet.create({
-  constructorWrapper : {
-    alignItems: "center",
-    display: "flex",
-    justifyContent: "center"
-  } ,
-  text: {
-    fontSize: 35
-  } ,
-  button: {
-   width: 300,
-   height:100,
-   backgroundColor:"white",
-   alignItems: "center",
-   display: "flex",
-   justifyContent: "center",
-   borderRadius: 15
-  } , 
-  resultField: {
-   width: 300,
-   height: 100,
-   alignItems: "center",
-   display: "flex",
-   justifyContent: "center",
-   borderRadius: 15,
-   marginTop: 10
-  } ,
-  letterBox: {
-    width: 350,
-    height:200,
-    backgroundColor:"white",
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignContent: 'center',
-    flexWrap: 'wrap',
-    gap: 15,
-    borderRadius: 15,
-    marginTop: 10
-  } 
-})
 
 export default WordConstructor;

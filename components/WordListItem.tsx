@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Pressable, ScrollView, FlatList, ActivityIndicator, SafeAreaView, StyleSheet } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { IRootDictionary } from '../services/types';
-import { WordItem, WordItemPartition, WordAdder } from '../services/styles';
 import { addNewWord } from '../services/functions';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
 import { setUserDictionary } from '../redux/slices/userSlice';
 import { getLocalDataName } from '../services/functions';
 import { ILocalStorageData } from '../services/types';
 import useUserData from '../services/hooks/useUserData';
+//styles
+import { h3 } from '../services/styles/typography';
+import { wordAdderButton } from '../services/styles/buttons';
+import { wordListCard } from '../services/styles/views';
 
 interface IWordListItemProps {
     item: IRootDictionary
@@ -44,18 +47,18 @@ const WordListItem = ( {item}:IWordListItemProps ) => {
   const isInDictionaryCheck = dictionary.dictionary.some( el => el.sloWord === currentWord);
 
   return (
-     <WordItem>
-        <WordItemPartition>{`${item.sloWord} - ${item.ukrWord}`}</WordItemPartition>
+     <View style={wordListCard}>
+        <Text style={h3}>{`${item.sloWord} - ${item.ukrWord}`}</Text>
         { item.isIrregular && <Text>{ `теперешній час ${item.irregulars.present} , майбутній та минулий час ${item.irregulars.pastAndFuture}` }</Text> }
         { !isInDictionaryCheck ? 
           <Pressable onPress = {dictionaryHandler}>
-          <WordAdder style={{backgroundColor: "green"}}><Text>{`Додати до мого словника`}</Text></WordAdder>   
+          <View style={[wordAdderButton, {backgroundColor: "green"}]}><Text>{`Додати до мого словника`}</Text></View>   
         </Pressable> 
         : 
         <Pressable onPress = {dictionaryHandler}>
-        <WordAdder style={{backgroundColor: "teal"}}><Text>{`У словнику`}</Text></WordAdder>   
+        <View style={[wordAdderButton, {backgroundColor: "teal"}]}><Text>{`У словнику`}</Text></View>   
       </Pressable> }
-     </WordItem>
+     </View>
   )
 }
 

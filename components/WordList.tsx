@@ -1,13 +1,18 @@
+//other
 import React, {useEffect, useState} from 'react';
-import { View, Text, Pressable, ScrollView, FlatList, ActivityIndicator, SafeAreaView, StyleSheet } from 'react-native';
+import { View, ScrollView, ActivityIndicator } from 'react-native';
+import { Pressable, Text } from "@react-native-material/core";
 import { IRootDictionary } from '../services/types';
-import { BigText } from '../services/styles';
 import { baseDictionary } from '../services/rootDictionary';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
 import { setActiveCategory } from '../redux/slices/dictionarySlice';
 import useDictionaryData from '../services/hooks/useDictionaryData';
-
+//styles
+import { wordListStyles, wordListItself } from '../services/styles/views';
+import { returnButton } from '../services/styles/buttons';
+//components
 import WordListItem from './WordListItem';
+
 const WordList = () => {
     
     const dispatch = useCommonDispatch();
@@ -24,15 +29,15 @@ const WordList = () => {
    }
 
   return (
-    <View style={styles.scrollView}>
-     <Pressable style={styles.returnButton} onPress={returnHandler}>
-       <BigText>Назад</BigText>    
+    <View style={wordListStyles}>
+     <Pressable style={returnButton} onPress={returnHandler}>
+       <Text>Назад</Text>    
      </Pressable>   
      {
       wordList.length === 0 ?
       <ActivityIndicator size="large" color="#00ff00" /> 
       :
-      <ScrollView contentContainerStyle={styles.listStyle}>
+      <ScrollView contentContainerStyle={wordListItself}>
        { wordList.map( (item, idx) => {
         return < WordListItem key = {idx} item = {item}/>
        }) }
@@ -41,27 +46,5 @@ const WordList = () => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-    scrollView: {
-        paddingTop: 50,
-        paddingBottom: 110,
-        backgroundColor: "#474A4F",
-    },
-    listStyle : {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    returnButton: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingHorizontal: 25,
-      height: 100,
-      backgroundColor: "red",
-      marginBottom: 15
-    }
-})
 
 export default WordList;

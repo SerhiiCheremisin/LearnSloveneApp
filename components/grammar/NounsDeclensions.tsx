@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
-import { Container, TableCell, TableRow, SmallTableNounTitle } from '../../services/styles';
+import { ScrollView } from 'react-native';
 import ReturnGrammarButton from './ReturnGrammarButton';
-import { TableNounTitleBlock, TableNounTitle } from '../../services/styles';
+import { scrollViewMargin, tableCell, tableCellSmall, tableCellMedium, tableRow, tableRowTitle } from '../../services/styles/views';
+import ViewContainer from '../generalComponent/ViewContainer';
+import { Text , Box } from "@react-native-material/core";
 // grammar
 import { nounDeclension, nounDeclensionRules, nounsQuestions } from '../../services/grammarRules';
 import { headerOption, sklon } from '../../services/types';
@@ -11,110 +12,110 @@ const NounsDeclensions = () => {
 
 const headerTitleRender = (sklon:sklon) => {
      return (
-          <TableCell><SmallTableNounTitle>{`${nounsQuestions[sklon].ukrName}`}</SmallTableNounTitle><Text>{`${nounsQuestions[sklon].questions}`}</Text></TableCell> 
+          <Box style={tableCellMedium}><Text>{`${nounsQuestions[sklon].ukrName}`}</Text><Text>{`${nounsQuestions[sklon].questions}`}</Text></Box> 
          )
 }
 const headerRender = () => {
     return nounDeclension.nounsTitle.map( (el:string, idx) => {
-          return <TableCell key={idx}><Text>{`${el.toUpperCase()}`}</Text></TableCell>  
+          return <Box style={tableCellMedium} key={idx}><Text>{`${el.toUpperCase()}`}</Text></Box>  
         })
 }
 
 const renderCell = (gender:headerOption, sklon: sklon) => {
      return nounDeclensionRules[gender].declensions[sklon].map( (el: string, idx: number) => {
-          return <TableCell key={idx}><Text>{el}</Text></TableCell> 
+          return <Box style={tableCellMedium} key={idx}><Text>{el}</Text></Box> 
      })
 }
   return (
-    <Container> 
-      <ScrollView style={{paddingTop: "7%"}}>
+    <ViewContainer> 
+      <ScrollView style={scrollViewMargin}>
       <ReturnGrammarButton/>
-    <TableNounTitleBlock><TableNounTitle>Чоловічий рід</TableNounTitle></TableNounTitleBlock>
-      <TableRow>
+    <Box style={tableRowTitle}><Text>Чоловічий рід</Text></Box>
+      <Box style={tableRow}>
         { headerRender() }
-      </TableRow> 
-      <TableRow>
+      </Box> 
+      <Box style={tableRow}>
        { headerTitleRender("nominative") }   
        { renderCell("masculine", "nominative") }
-      </TableRow> 
-      <TableRow>
+      </Box> 
+      <Box style={tableRow}>
       { headerTitleRender("genitive") } 
       { renderCell("masculine", "genitive") }
-      </TableRow>
-      <TableRow> 
+      </Box>
+      <Box style={tableRow}> 
        { headerTitleRender("dative") }
        { renderCell("masculine", "dative") }
-      </TableRow> 
-      <TableRow> 
+      </Box> 
+      <Box style={tableRow}> 
        { headerTitleRender("accusative") }
        { renderCell("masculine", "accusative") }
-      </TableRow> 
-      <TableRow> 
+      </Box> 
+      <Box style={tableRow}> 
       { headerTitleRender("locative") }
        { renderCell("masculine", "locative") }
-      </TableRow> 
-      <TableRow> 
+      </Box> 
+      <Box style={tableRow}> 
      { headerTitleRender("instrumental") }
        { renderCell("masculine", "instrumental") }
-      </TableRow> 
-    <TableNounTitleBlock><TableNounTitle>Жіночий рід</TableNounTitle></TableNounTitleBlock>
-    <TableRow>
+      </Box> 
+    <Box style={tableRowTitle}><Text>Жіночий рід</Text></Box>
+    <Box style={tableRow}>
     { headerRender() }
-      </TableRow> 
-      <TableRow>
+      </Box> 
+      <Box style={tableRow}>
       { headerTitleRender("nominative") }  
        { renderCell("feminine", "nominative") }
-      </TableRow> 
-      <TableRow>
+      </Box> 
+      <Box style={tableRow}>
       { headerTitleRender("genitive") }  
        {  renderCell("feminine", "genitive") }
-      </TableRow>
-      <TableRow> 
+      </Box>
+      <Box style={tableRow}> 
       { headerTitleRender("dative") } 
        {  renderCell("feminine", "dative") }
-      </TableRow> 
-      <TableRow> 
+      </Box> 
+      <Box style={tableRow}> 
       { headerTitleRender("accusative") } 
        {  renderCell("feminine", "accusative") }
-      </TableRow> 
-      <TableRow> 
+      </Box> 
+      <Box style={tableRow}> 
       { headerTitleRender("locative") } 
        { renderCell("feminine", "locative") } 
-      </TableRow> 
-      <TableRow> 
+      </Box> 
+      <Box style={tableRow}> 
       { headerTitleRender("instrumental") } 
        { renderCell("feminine", "instrumental") }
-      </TableRow> 
-      <TableNounTitleBlock><TableNounTitle>Середній рід</TableNounTitle></TableNounTitleBlock>
-      <TableRow>
+      </Box> 
+      <Box  style={tableRowTitle}><Text>Середній рід</Text></Box>
+      <Box style={tableRow}>
       { headerRender() }
-      </TableRow> 
-      <TableRow>
+      </Box> 
+      <Box style={tableRow}>
       { headerTitleRender("nominative") }  
        { renderCell("neuter", "nominative") }
-      </TableRow> 
-      <TableRow>
+      </Box> 
+      <Box style={tableRow}>
       { headerTitleRender("genitive") } 
        { renderCell("neuter", "genitive") }
-      </TableRow>
-      <TableRow> 
+      </Box>
+      <Box style={tableRow}> 
       { headerTitleRender("dative") }  
        { renderCell("neuter", "dative") }
-      </TableRow> 
-      <TableRow> 
+      </Box> 
+      <Box style={tableRow}> 
       { headerTitleRender("accusative") }  
        { renderCell("neuter", "accusative") }
-      </TableRow> 
-      <TableRow> 
+      </Box> 
+      <Box style={tableRow}> 
       { headerTitleRender("locative") }  
        { renderCell("neuter", "locative") }
-      </TableRow> 
-      <TableRow> 
+      </Box> 
+      <Box style={tableRow}> 
       { headerTitleRender("instrumental") }  
        { renderCell("neuter", "instrumental") }
-      </TableRow> 
+      </Box> 
       </ScrollView> 
-    </Container>
+    </ViewContainer>
   )
 }
 export default NounsDeclensions;

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Pressable, Text, StyleSheet } from 'react-native'
-import { IRootDictionary } from '../../services/types'
-
+import React, { useEffect, useState } from 'react';
+import { IRootDictionary } from '../../services/types';
+import { Pressable, Text } from "@react-native-material/core";
+import { singleLetter } from '../../services/styles/buttons';
 interface ISingleLetterProps {
     letter : string,
     answerIndex: number,
@@ -55,26 +55,10 @@ const SingleLetter = ( {letter, answerIndex, setAnswerIndex , questions, wordCou
     }
 
     return (
-        <Pressable onPress={ () => checkTheCorrectLetter(letter)} style={[styles.letter, answerCustomBG]}>
-        <Text style={styles.alphabeticalItem}> {`${letter}`} </Text>   
+        <Pressable onPress={ () => checkTheCorrectLetter(letter)} style={[singleLetter, answerCustomBG]}>
+        <Text style={{ color: "black", fontSize: 25 }}> {`${letter}`} </Text>   
        </Pressable>
   )
 }
-
-const styles = StyleSheet.create({
-    letter : {
-      width: 50,
-      height: 50,
-      borderRadius: 15,
-      backgroundColor: "black",
-      alignItems: "center",
-      display: "flex",
-      justifyContent: "center",
-    },
-    alphabeticalItem: {
-     color: "black",
-     fontSize: 25
-    }
-  })
 
 export default SingleLetter;

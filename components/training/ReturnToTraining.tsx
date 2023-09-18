@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { Pressable, Text } from "@react-native-material/core";
+import { returnButton } from '../../services/styles/buttons';
 
 interface returnToTrainingProps {
     getBack : Function
@@ -12,24 +13,10 @@ const returnHandler = () => {
 }
 
   return (
-    <Pressable onPress={returnHandler} style={styles.returnButton}>
+    <Pressable onPress={returnHandler} style={returnButton}>
      <Text>Назад</Text>
     </Pressable>
   )
 }
-
-const styles = StyleSheet.create({
-    returnButton : {
-      width: 150,
-      height: 50,
-      backgroundColor: "red",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: 10,
-      marginBottom: 10,
-      borderRadius:10
-    }
-})
 
 export default ReturnToTraining;

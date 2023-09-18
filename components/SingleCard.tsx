@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text, Pressable, View } from 'react-native';
-import { Card } from '../services/styles';
+import { categoryCard } from '../services/styles/views';
+import { Text, Pressable, Box } from "@react-native-material/core";
 import { setActiveCategory } from '../redux/slices/dictionarySlice';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
 
@@ -17,9 +17,9 @@ const SingleCard = ( {categoryTitle} : ISingleCardProps ) => {
 
   return (
     <Pressable onPress={() => cardHandler(categoryTitle)}>
-     <Card>
+     <Box style={categoryCard}>
        <Text>{`${categoryTitle}`}</Text>
-     </Card>
+     </Box>
     </Pressable>
   )
 }

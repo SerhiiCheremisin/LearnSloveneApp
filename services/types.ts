@@ -59,6 +59,17 @@ interface INounDeclension {
     instrumental: string[],
 } 
 
+export interface IChangeFormCommon {
+    ukr: string,
+    eng: string
+}
+
+export interface IChangeFormsParticularCases {
+    exampleUkr: string,
+    exampleEng: string,
+    cases: IChangeFormCommon[]
+}
+
 export interface IDeclensionNounsRules {
         masculine: {
          declensions: INounDeclension
@@ -72,3 +83,11 @@ export interface IDeclensionNounsRules {
    }
    export type headerOption = "masculine" | "feminine" | "neuter";
    export type sklon = "nominative" | "genitive" | "dative" | "accusative" | "locative" | "instrumental";
+
+   export interface IBeAndHaveRules {
+    head: {
+        ukr : string[],
+        eng: string[]
+    },
+    body: string[][]
+}

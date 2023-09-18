@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
-import useUserData from '../../services/hooks/useUserData';
-import { IRootDictionary } from '../../services/types';
-import { MyDictionaryCard, H3, PressableButton } from '../../services/styles';
-import { addNewWord } from '../../services/functions';
+import { View, ScrollView } from 'react-native';
 import { setUserDictionary } from '../../redux/slices/userSlice';
-import { getLocalDataName } from '../../services/functions';
-import { ILocalStorageData } from '../../services/types';
 import { useDispatch } from 'react-redux';
+import { Pressable, Text, Box } from "@react-native-material/core";
+//services
+import { getLocalDataName, addNewWord } from '../../services/functions';
+import { ILocalStorageData, IRootDictionary } from '../../services/types';
+import useUserData from '../../services/hooks/useUserData';
+//styles
+import { buttonDelete, returnButton } from '../../services/styles/buttons';
+import { wordListCard } from '../../services/styles/views';
+import { h3 } from '../../services/styles/typography';
+import { categoryTrainingCard } from '../../services/styles/views';
 
 const MyDictionary = () => {
   const userData = useUserData();
@@ -43,19 +47,19 @@ const MyDictionary = () => {
   const CardList = ():JSX.Element => {
     return (
         <>
-        <Pressable onPress={() => setActiveCategory("")} style={styles.backButton}>
+        <Pressable onPress={() => setActiveCategory("")} style={returnButton}>
           <Text>{`До списку категорій`}</Text>
         </Pressable>
          {dictionary.filter( (item: IRootDictionary) => item.category === activeCategoty)
          .map( (item:IRootDictionary, idx: number) => {
           return (
-        <MyDictionaryCard key={idx}>
-           <H3>{`${item.sloWord.toUpperCase()} - ${item.ukrWord.toUpperCase()}`}</H3>
-           {item.isIrregular === true && <H3>{`Теперішній час "${item.irregulars.present.toUpperCase()}", майбутній та минулий час "${item.irregulars.pastAndFuture.toUpperCase()}"`}</H3>}
-           <PressableButton onPress={() => deleteWordFromDictionary(item)}>
+        <Box style={wordListCard} key={idx}>
+           <Text style={h3}>{`${item.sloWord.toUpperCase()} - ${item.ukrWord.toUpperCase()}`}</Text>
+           {item.isIrregular === true && <Text style={h3}>{`Теперішній час "${item.irregulars.present.toUpperCase()}", майбутній та минулий час "${item.irregulars.pastAndFuture.toUpperCase()}"`}</Text>}
+           <Pressable style={buttonDelete} onPress={() => deleteWordFromDictionary(item)}>
             <Text>Видалити це слово</Text>
-           </PressableButton>
-        </MyDictionaryCard>
+           </Pressable>
+        </Box>
       )
  } )} 
         </>
@@ -65,10 +69,10 @@ const MyDictionary = () => {
   return (
     <View style={{marginBottom: 50}}>
      { activeCategoty === "" ?
-        <ScrollView style={styles.viewWrapper}>
+        <ScrollView style={{display: "flex"}}>
         { dictionaryCategories.map( (el:string) =>  {
          return (
-          <Pressable onPress={() => setActiveCategory(el)} style={styles.viewCard}>
+          <Pressable onPress={() => setActiveCategory(el)} style={categoryTrainingCard}>
             <Text style={{fontSize: 20}}>{`${el}`}</Text>
           </Pressable>
          )
@@ -81,33 +85,5 @@ const MyDictionary = () => {
 
   )
 }
-
-const styles = StyleSheet.create({
-  viewWrapper: {
-    display: "flex",
-  },
-  viewCard : {
-    width: 250,
-    height: 100,
-    backgroundColor: "#dfff",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: 'center',
-    marginTop: 10,
-    marginBottom: 10,
-    borderRadius:10,
-  } ,
-  backButton: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: 150,
-    height: 50,
-    backgroundColor: "green",
-    borderRadius: 10,
-    marginBottom: 15
-  }
-})
 
 export default MyDictionary;

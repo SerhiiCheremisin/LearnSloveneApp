@@ -1,25 +1,26 @@
 import React, {useEffect, useState} from 'react';
-import { View, Text, ActivityIndicator, ScrollView, StyleSheet, Pressable } from 'react-native';
+import { View, ActivityIndicator, ScrollView } from 'react-native';
+import { Pressable, Text } from "@react-native-material/core";
 //Styles
-import { Container, H2, ExitButton } from '../services/styles';
-
+import { mainExitButton } from '../services/styles/buttons';
+import { h2 } from '../services/styles/typography';
 //Components
 import SingleCard from '../components/SingleCard';
 import WordList from '../components/WordList';
-
+import ViewContainer from '../components/generalComponent/ViewContainer';
+//Other
 import { baseDictionary } from '../services/rootDictionary';
-import { IRootDictionary } from '../services/types';
+import { removeLocalUser, getLocalDataName } from '../services/functions';
 import useDictionaryData from '../services/hooks/useDictionaryData';
-import useUserData from '../services/hooks/useUserData';
-import { getLocalDataName } from '../services/functions';
-import { setUserLogged, setUserName } from '../redux/slices/userSlice';
 import useCommonDispatch from '../services/hooks/useCommonDispatch';
-import { removeLocalUser } from '../services/functions';
+import { setUserLogged, setUserName } from '../redux/slices/userSlice';
+import { IRootDictionary } from '../services/types';
+import useUserData from '../services/hooks/useUserData';
 
 
 const VocabularyScreen = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [categories, setCategories] = useState<[]>([]);
+    const [categories, setCategories] = useState<string[]>([]);
     const activeDictionaryCategory = useDictionaryData();
     const user = useUserData();
     const dispatch = useCommonDispatch();
@@ -53,18 +54,18 @@ const VocabularyScreen = () => {
    }
     
     return (
-    <Container>
+    <ViewContainer>
       {
        isLoading === true ? 
        <ActivityIndicator size="large" color="#00ff00" /> 
        :
        <View style={{paddingTop: 50}}>
-       <H2>{`Вітаю ${user.name}`}</H2>
-       <ExitButton style={{margin: 20}} onPress={exitHandler}>
+       <Text style={h2}>{`Вітаю ${user.name}`}</Text>
+       <Pressable style={mainExitButton} onPress={exitHandler}>
          <Text>Вийти</Text>
-       </ExitButton>
+       </Pressable>
        <ScrollView>
-       <H2>{`Словник`}</H2>
+       <Text style={h2}>{`Словник`}</Text>
         { categories.map( (element:string, idx: number) => {
         return (
             <SingleCard key={idx} categoryTitle = {element}/>
@@ -73,7 +74,7 @@ const VocabularyScreen = () => {
        </ScrollView>
        </View>
       }  
-    </Container>
+    </ViewContainer>
   )
 }
 

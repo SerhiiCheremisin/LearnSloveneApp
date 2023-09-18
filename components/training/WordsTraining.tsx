@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Pressable, ActivityIndicator, Modal, Alert } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import useUserData from '../../services/hooks/useUserData';
+import { Text, Pressable, Box } from "@react-native-material/core";
 import { IRootDictionary } from '../../services/types';
 import { shuffleArray } from '../../services/functions';
-import { H2, H3 } from '../../services/styles';
+
 import AnswerCard from './AnswerCard';
+
+//styles
+import { returnButton } from '../../services/styles/buttons';
+import { h2, h3 } from '../../services/styles/typography';
 
 const WordsTraining = () => {
 
@@ -78,48 +83,28 @@ const motivationText = ():string => {
 
   if (pace <= 9) {
     return (
-        <View>
-          <View style={styles.respondView}>
-           <H2>{`${trainigDictionary[pace]?.sloWord.toUpperCase()}`}</H2>
-
+        <Box>
+          <Box style={{ alignItems: "center", paddingTop: 25}}>
+           <Text style={h2}>{`${trainigDictionary[pace]?.sloWord.toUpperCase()}`}</Text>
             {answers.map( (el: IRootDictionary, idx: number) => {
              return(
               <AnswerCard key={idx} currentWord={el} respondFunction={answerHandler} correctRespond={trainigDictionary[pace].ukrWord}/>
              )
         })}
-        </View>
-        </View>
+        </Box>
+        </Box>
     )
   }
 
   if (pace === 10) {
     return (
-      <View style={styles.respondView}>
-        <H2>Тест закінчився</H2> 
-        <H3>{`Кількість правильних відповідей : ${correctAnswers} , ${motivationText()}`}</H3> 
-        <Pressable onPress={startNewGame} style={styles.runAgainButton}><Text>Ще раз</Text></Pressable>  
-      </View>
+      <Box style={{ alignItems: "center", paddingTop: 25}}>
+        <Text style={h2}>Тест закінчився</Text> 
+        <Text style={h3}>{`Кількість правильних відповідей : ${correctAnswers} , ${motivationText()}`}</Text> 
+        <Pressable onPress={startNewGame} style={returnButton}><Text>Ще раз</Text></Pressable>  
+      </Box>
     )
   }
 }
-const styles = StyleSheet.create({
-  runAgainButton: {
-    width: 300,
-    height:50,
-    marginTop: 20,
-    backgroundColor: "#fff" ,
-    borderRadius: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom:15
-  },
-  respondView: {
-    alignItems: "center", 
-    paddingTop: 25,
-  }, row : {
-   flexDirection: "row",
-   gap: 10
-  }
-})
 
 export default WordsTraining;

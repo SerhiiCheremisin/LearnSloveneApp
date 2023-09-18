@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Pressable, ScrollView } from 'react-native';
+import { View, Text, TextInput, ScrollView, Pressable } from 'react-native';
 import styled from 'styled-components';
 
 
@@ -25,6 +25,7 @@ export const TextForm = styled.View`
  gap: 10px;
  background-color: #22c1c3;
 `
+
 
 export const PressableButton = styled.Pressable`
   width: 200px;
