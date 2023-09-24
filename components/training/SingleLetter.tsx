@@ -5,13 +5,15 @@ import { singleLetter } from '../../services/styles/buttons';
 interface ISingleLetterProps {
     letter : string,
     answerIndex: number,
-    setAnswerIndex: Function,
+    setAnswerIndex: React.Dispatch<React.SetStateAction<number>>,
     questions : IRootDictionary[],
     wordCount: number,
-    setAnswer: Function
+    setAnswer: React.Dispatch<React.SetStateAction<string>>,
+    setAnswersLetters: React.Dispatch<React.SetStateAction<string[]>>,
+    lettersCopy: string[]
 }
 
-const SingleLetter = ( {letter, answerIndex, setAnswerIndex , questions, wordCount, setAnswer } : ISingleLetterProps ):JSX.Element => {
+const SingleLetter = ( {letter, answerIndex, setAnswerIndex , questions, wordCount, setAnswer, setAnswersLetters, lettersCopy } : ISingleLetterProps ):JSX.Element => {
     const [answerCustomBG, setAnswerCustomBG] = useState<object>({
         backgroundColor: "grey"
        });
@@ -47,6 +49,10 @@ const SingleLetter = ( {letter, answerIndex, setAnswerIndex , questions, wordCou
         setAnswerIndex(answerIndex+1);
         setAnswerCustomBG( {...correctBG});
         setChangeBG(true);
+        const copyArray = [...lettersCopy];
+        const indexedLetter = copyArray.indexOf(letter);
+        copyArray[indexedLetter] = "empty";
+        setAnswersLetters(copyArray);
         return
         }
         setChangeBG(true); 

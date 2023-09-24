@@ -4,10 +4,11 @@ import { IRootDictionary } from "../../services/types";
 import useUserData from "../../services/hooks/useUserData";
 import { shuffleArray } from "../../services/functions";
 import SingleLetter from "./SingleLetter";
-import { Text, Box } from "@react-native-material/core";
+import { Text, Box, Pressable } from "@react-native-material/core";
 
 import { letterAnswerBox } from "../../services/styles/views";
 import { h2 } from "../../services/styles/typography";
+import React from "react";
 
 const WordConstructor = () => {
 
@@ -15,6 +16,7 @@ const WordConstructor = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [questions, setQuestions] = useState<IRootDictionary[]>([]);
     const [letters, setLetters] = useState<string[]>([]);
+    const [lettersCopy, setLettersCopy] = useState<string[]>([]);
     const [answer, setAnswer] = useState<string>('');
     const [answerIndex , setAnswerIndex] = useState<number>(0);
     const [answerBG, setAnswerBG] = useState<object>( { backgroundColor : "white"})
@@ -53,6 +55,10 @@ const WordConstructor = () => {
           makeLetterArray();
       },[questions])
 
+      useEffect( () => {
+        setLettersCopy(letters);
+      }, [letters])
+
         useEffect(() => {
           if (wordCount > 10) {
             choseTenQuestions();
@@ -72,9 +78,15 @@ const WordConstructor = () => {
        <Text>{`${answer}`}</Text>
       </Box>
       <Box style={letterAnswerBox}>
-       { Array.isArray(letters) && letters.map( (letter:string, idx:number) => {
+       { Array.isArray(lettersCopy) && lettersCopy.map( (letter:string, idx:number) => {
+        if (letter === "empty") {
+          return(
+            <Pressable key={idx} style={{backgroundColor: "while", width: 50, height: 50}}></Pressable>
+          )
+        }
             return (
-               <SingleLetter key={idx} letter={letter} setAnswer={setAnswer} answerIndex={answerIndex} setAnswerIndex={setAnswerIndex} questions={questions} wordCount={wordCount} />
+               <SingleLetter key={idx} letter={letter}  setAnswersLetters={setLettersCopy} setAnswer={setAnswer} answerIndex={answerIndex} 
+                             setAnswerIndex={setAnswerIndex} questions={questions} wordCount={wordCount} lettersCopy={lettersCopy} />
             )
            }) }
      </Box>
