@@ -91,3 +91,11 @@ export interface IDeclensionNounsRules {
     },
     body: string[][]
 }
+
+export interface IImperativeRule {
+    example: string,
+    ending: string,
+    formal: string,
+    informal:string,
+    newExample: string
+}

@@ -154,3 +154,9 @@ export const tableRowTitle = {
     alignItems: "center",
     flexDirection: "row",
 }
+
+export const imperativeTab = {
+    marginBottom: 20,
+    backgroundColor: "grey",
+    padding: 10
+}

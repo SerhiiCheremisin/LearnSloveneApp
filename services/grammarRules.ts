@@ -1,4 +1,4 @@
-import { IDeclensionNounsRules, INounDeclensionHeaders, INounQuestions, IChangeFormCommon, IChangeFormsParticularCases, IBeAndHaveRules } from "./types"
+import { IDeclensionNounsRules, INounDeclensionHeaders, INounQuestions, IChangeFormCommon, IChangeFormsParticularCases, IBeAndHaveRules, IImperativeRule } from "./types"
 
 export const nounDeclension: INounDeclensionHeaders = {
     nounsTitle : ["Відмінок", "Однина", "Двоїна", "Множина" ]
@@ -182,4 +182,12 @@ export const verbDeclension = [
     ["Mi, Me", "bomo" , "ne bomo"],
     ["Vi, Ve", "bosta" , "ne boste"],
     ["Oni, One", "bojo, bodo" , "ne bojo, ne bodo"],
+]
+
+export const imperativeRules: IImperativeRule[] = [
+    { example: "povabiti", ending: "im", formal: "ite", informal:"i", newExample: "povabi/povabite" },
+    { example: "kazati", ending: "em", formal: "ite", informal:"i", newExample: "kaži/kažite" },
+    { example: "prodati", ending: "am", formal: "ajte", informal:"aj", newExample: "prodaj/prodajte" },
+    { example: "potovati", ending: "ujem", formal: "ujte", informal:"uj", newExample: "potuj/potujte" },
+    { example: "teči", ending: "čem", formal: "cite", informal:"ci", newExample: "teci/tecite" }
 ]

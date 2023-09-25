@@ -11,6 +11,7 @@ import NounsDeclensions from '../components/grammar/NounsDeclensions';
 import ToBeVerb from '../components/grammar/ToBeVerb';
 import ChangeFormOvWord from '../components/grammar/ChangeFormOvWord';
 import ViewContainer from '../components/generalComponent/ViewContainer';
+import ImperativeMood from '../components/grammar/ImperativeMood';
 
 const GrammarScreen = () => {
 
@@ -30,6 +31,8 @@ const GrammarScreen = () => {
     return <NounsDeclensions/>
    case "changeWord": 
     return <ChangeFormOvWord/>
+  case "imperative": 
+    return <ImperativeMood/>
    default : 
     return (
       <ViewContainer>
@@ -44,6 +47,9 @@ const GrammarScreen = () => {
         </Pressable>
         <Pressable onPress={() => grammarChooserHandler("changeWord")} style={chooserButton}>
         <Text>Зміна значення слів через префікси</Text>
+        </Pressable>
+        <Pressable onPress={() => grammarChooserHandler("imperative")} style={chooserButton}>
+        <Text>Наказова форма</Text>
         </Pressable>
       </ViewContainer>
     )
