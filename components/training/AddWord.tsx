@@ -87,8 +87,8 @@ const irregularAdder = (key: string, value: string):void => {
     setNewWord(newState);
 }
 
-const backgroundButtomRender = newWord.isIrregular ? "green" : "#ffffff";
-const backgroundButtomRenderNegative = newWord.isIrregular ? "#ffffff" : "green";
+const backgroundButtomRender = newWord.isIrregular ? "#738290" : "#ffffff";
+const backgroundButtomRenderNegative = newWord.isIrregular ? "#ffffff" : "#738290";
     return(
         <ScrollView nestedScrollEnabled = {true}>
         <SafeAreaView>

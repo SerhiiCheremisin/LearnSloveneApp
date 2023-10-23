@@ -30,7 +30,7 @@ const renderCell = (gender:headerOption, sklon: sklon) => {
     <ViewContainer> 
       <ScrollView style={scrollViewMargin}>
       <ReturnGrammarButton/>
-    <Box style={tableRowTitle}><Text>Чоловічий рід</Text></Box>
+    <Box style={tableRowTitle}><Text style={{fontSize: 30}}>Чоловічий рід</Text></Box>
       <Box style={tableRow}>
         { headerRender() }
       </Box> 
@@ -58,7 +58,7 @@ const renderCell = (gender:headerOption, sklon: sklon) => {
      { headerTitleRender("instrumental") }
        { renderCell("masculine", "instrumental") }
       </Box> 
-    <Box style={tableRowTitle}><Text>Жіночий рід</Text></Box>
+    <Box style={tableRowTitle}><Text style={{fontSize: 30}}>Жіночий рід</Text></Box>
     <Box style={tableRow}>
     { headerRender() }
       </Box> 
@@ -86,7 +86,7 @@ const renderCell = (gender:headerOption, sklon: sklon) => {
       { headerTitleRender("instrumental") } 
        { renderCell("feminine", "instrumental") }
       </Box> 
-      <Box  style={tableRowTitle}><Text>Середній рід</Text></Box>
+      <Box  style={tableRowTitle}><Text style={{fontSize: 30}}>Середній рід</Text></Box>
       <Box style={tableRow}>
       { headerRender() }
       </Box> 

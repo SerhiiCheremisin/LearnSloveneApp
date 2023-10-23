@@ -8,7 +8,7 @@ type colorsType = {
 
 export const colors: colorsType = {
     colorPrimary : "gray", 
-    backgoundPrimary: "#FFFFFF",
-    backgroundColorWrapper: "#474A4F",
-    commonGrey: "#9db4c0"
+    backgoundPrimary: "#6C696A",
+    backgroundColorWrapper: "#FFFFFF",
+    commonGrey: "#A09E9F"
 }

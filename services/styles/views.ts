@@ -2,7 +2,7 @@ import { colors } from "./colors";
 
 
 export const scrollViewMargin = {
-    paddingTop: "7%"
+    paddingTop: "7%",
 }
 
 export const commonContainer = {
@@ -80,7 +80,7 @@ export const letterAnswerBox = {
     flexWrap: 'wrap',
     gap: 15,
     borderRadius: 15,
-    marginTop: 10
+    marginTop: 10,
 }
 
 
@@ -119,14 +119,15 @@ export const tableRow = {
     display: "flex",
     flexDirection: "row",
     width: "100%",
-    height: 100,
-    border: "1px solid black"
+    minHeight: 100,
+    borderWidth: 1,
+    marginBottom: 30
 }
 
 export const tableCellSmall = {
     display: "flex",
     width: "20%",
-    border: "1px solid black",
+    borderWidth: 1,
     justifyContent: "center",
     alignItems: "center",
 }
@@ -134,7 +135,7 @@ export const tableCellSmall = {
 export const tableCell =  {
     display: "flex",
     width: "33%",
-    border: "1px solid black",
+    borderWidth: 1,
     justifyContent: "center",
     alignItems: "center",
 }
@@ -142,7 +143,7 @@ export const tableCell =  {
 export const tableCellMedium =  {
     display: "flex",
     width: "25%",
-    border: "1px solid black",
+    borderWidth: 1,
     justifyContent: "center",
     alignItems: "center",
 }

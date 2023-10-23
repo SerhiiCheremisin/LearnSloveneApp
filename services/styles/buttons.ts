@@ -67,8 +67,8 @@ export const chooserButton = {
     }
 
     export const answerButton = {
-      width: 300,
-      height:100,
+      width: "90%",
+      height: 140,
       borderRadius: 10,
       alignItems: "center",
       justifyContent: "center",

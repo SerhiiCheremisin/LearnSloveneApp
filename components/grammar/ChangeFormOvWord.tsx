@@ -2,7 +2,7 @@ import React from 'react'
 import { ScrollView } from 'react-native'
 import ReturnGrammarButton from './ReturnGrammarButton';
 import { IChangeFormCommon, IChangeFormsParticularCases } from '../../services/types';
-import { Text } from "@react-native-material/core";
+import { Box, Text } from "@react-native-material/core";
 import { changeFormCommon, changeFormsParticularCases } from '../../services/grammarRules';
 import ViewContainer from '../generalComponent/ViewContainer';
 import { scrollViewMargin } from '../../services/styles/views';
@@ -24,14 +24,14 @@ const changeFormOvWordPadding = {
              )
          }) }  
          {
-           changeFormsParticularCases.map( (element:IChangeFormsParticularCases) => {
+           changeFormsParticularCases.map( (element:IChangeFormsParticularCases, idx:number) => {
               return(
-                <>
+                <Box key={idx}>
                  <Text variant="h4" style={changeFormOvWordPadding}>{element.exampleUkr}</Text>
                  { element.cases.map( (item:IChangeFormCommon) => {
                     return <Text key={item?.ukr} variant="h5">{item?.ukr}</Text>
                  }) }
-                </>
+                </Box>
               )
            })
          }

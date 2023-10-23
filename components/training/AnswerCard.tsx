@@ -13,21 +13,21 @@ interface ISingleCardProps {
 const AnswerCard = ( { currentWord, respondFunction, correctRespond } : ISingleCardProps) => {
     
     const [customBackground, setCustomBackground] = useState<object>({
-     backgroundColor: "#fff"
+     backgroundColor: "#F4F1BB"
     })
 
     const respondHandler = (respondWord: string):void => {
        if (respondWord === correctRespond) {
         setCustomBackground({backgroundColor: "green"});
         setTimeout( () => {
-          setCustomBackground({backgroundColor: "#fff"});
+          setCustomBackground({backgroundColor: "#F4F1BB"});
           respondFunction(respondWord)
         }, 1000);
         return
        }
        setCustomBackground({backgroundColor: "red"});
        setTimeout( () => {
-        setCustomBackground({backgroundColor: "#fff"});
+        setCustomBackground({backgroundColor: "#F4F1BB"});
         respondFunction(respondWord);
        }, 1000);
        return

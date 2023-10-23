@@ -2,7 +2,7 @@
   "expo": {
     "name": "LearnSlovene",
     "slug": "learnSlo",
-     "description": "Learn Slovene language easy",
+    "description": "Learn Slovene language easy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/playstore.png",
@@ -22,10 +22,22 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/playstore.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.serhiicheremisin.learnSlo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "be7e1aa2-ee67-453b-a962-09f73b978583"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/be7e1aa2-ee67-453b-a962-09f73b978583"
     }
   }
 }

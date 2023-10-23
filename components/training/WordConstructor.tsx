@@ -19,7 +19,7 @@ const WordConstructor = () => {
     const [lettersCopy, setLettersCopy] = useState<string[]>([]);
     const [answer, setAnswer] = useState<string>('');
     const [answerIndex , setAnswerIndex] = useState<number>(0);
-    const [answerBG, setAnswerBG] = useState<object>( { backgroundColor : "white"})
+    const [answerBG, setAnswerBG] = useState<object>( { backgroundColor : "#738290"})
 
     const userData = useUserData();
     const {name, dictionary} = userData;
@@ -46,7 +46,7 @@ const WordConstructor = () => {
         setWordCount(wordCount+1);
         setAnswerIndex(0);
         setAnswer('');
-        setAnswerBG({...{ backgroundColor : "white"}})
+        setAnswerBG({...{ backgroundColor : "#738290"}})
        }, 500)
       }
     }, [answer])
@@ -75,13 +75,13 @@ const WordConstructor = () => {
     <Box style={ { alignItems: "center", display: "flex", justifyContent: "center"} }>
       <Text style={h2}>{questions[wordCount]?.ukrWord.toUpperCase()}</Text>
       <Box style={[letterAnswerBox, answerBG ]}>
-       <Text>{`${answer}`}</Text>
+       <Text style={{fontSize: 40}}>{`${answer.toLocaleUpperCase()}`}</Text>
       </Box>
       <Box style={letterAnswerBox}>
        { Array.isArray(lettersCopy) && lettersCopy.map( (letter:string, idx:number) => {
         if (letter === "empty") {
           return(
-            <Pressable key={idx} style={{backgroundColor: "while", width: 50, height: 50}}></Pressable>
+            <Pressable key={idx} style={{backgroundColor: "white", width: 50, height: 50}}></Pressable>
           )
         }
             return (
