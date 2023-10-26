@@ -85,7 +85,7 @@ const WordConstructor = () => {
           )
         }
             return (
-               <SingleLetter key={idx} letter={letter}  setAnswersLetters={setLettersCopy} setAnswer={setAnswer} answerIndex={answerIndex} 
+               <SingleLetter key={idx} currentIndex={idx} letter={letter}  setAnswersLetters={setLettersCopy} setAnswer={setAnswer} answerIndex={answerIndex} 
                              setAnswerIndex={setAnswerIndex} questions={questions} wordCount={wordCount} lettersCopy={lettersCopy} />
             )
            }) }

@@ -39,7 +39,7 @@ const ToBeVerb = () => {
          <Text style={tableHeader}>ДІЄСЛОВО БУТИ (ПОЗИТИВНА ТА НЕГАТИВНА ФОРМА ДЛЯ МАЙБУТНЬОГО)</Text>
          { beInTheFuture.map( (el: string[], idx:number) => {
            return (
-            <Box style={tableRow}>
+            <Box key={idx} style={tableRow}>
              { el.map( (item:string, idx:number) => {
               return (
                 <Box style={tableCell} key={idx}>

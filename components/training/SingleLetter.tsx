@@ -10,10 +10,11 @@ interface ISingleLetterProps {
     wordCount: number,
     setAnswer: React.Dispatch<React.SetStateAction<string>>,
     setAnswersLetters: React.Dispatch<React.SetStateAction<string[]>>,
-    lettersCopy: string[]
+    lettersCopy: string[],
+    currentIndex: number
 }
 
-const SingleLetter = ( {letter, answerIndex, setAnswerIndex , questions, wordCount, setAnswer, setAnswersLetters, lettersCopy } : ISingleLetterProps ):JSX.Element => {
+const SingleLetter = ( {letter, answerIndex, setAnswerIndex , questions, wordCount, setAnswer, setAnswersLetters, lettersCopy, currentIndex } : ISingleLetterProps ):JSX.Element => {
     const [answerCustomBG, setAnswerCustomBG] = useState<object>({
         backgroundColor: "grey"
        });
@@ -50,8 +51,7 @@ const SingleLetter = ( {letter, answerIndex, setAnswerIndex , questions, wordCou
         setAnswerCustomBG( {...correctBG});
         setChangeBG(true);
         const copyArray = [...lettersCopy];
-        const indexedLetter = copyArray.indexOf(letter);
-        copyArray[indexedLetter] = "empty";
+        copyArray[currentIndex] = "empty";
         setAnswersLetters(copyArray);
         return
         }
@@ -62,7 +62,7 @@ const SingleLetter = ( {letter, answerIndex, setAnswerIndex , questions, wordCou
 
     return (
         <Pressable onPress={ () => checkTheCorrectLetter(letter)} style={[singleLetter, answerCustomBG]}>
-        <Text style={{ color: "black", fontSize: 25 }}> {`${letter}`} </Text>   
+        <Text style={{ color: "black", fontSize: 25 }}> {`${letter.toLocaleUpperCase()}`} </Text>   
        </Pressable>
   )
 }
