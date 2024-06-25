@@ -50,14 +50,15 @@ const renderCell = (gender:headerOption, sklon: sklon) => {
        { headerTitleRender("accusative") }
        { renderCell("masculine", "accusative") }
       </Box> 
-      <Box style={tableRow}> 
-      { headerTitleRender("locative") }
-       { renderCell("masculine", "locative") }
-      </Box> 
-      <Box style={tableRow}> 
+       <Box style={tableRow}> 
      { headerTitleRender("instrumental") }
        { renderCell("masculine", "instrumental") }
-      </Box> 
+       </Box>
+       <Box style={tableRow}> 
+      { headerTitleRender("locative") }
+       { renderCell("masculine", "locative") }
+      </Box>
+      
     <Box style={tableRowTitle}><Text style={{fontSize: 30}}>Жіночий рід</Text></Box>
     <Box style={tableRow}>
     { headerRender() }
@@ -79,12 +80,12 @@ const renderCell = (gender:headerOption, sklon: sklon) => {
        {  renderCell("feminine", "accusative") }
       </Box> 
       <Box style={tableRow}> 
-      { headerTitleRender("locative") } 
-       { renderCell("feminine", "locative") } 
-      </Box> 
-      <Box style={tableRow}> 
       { headerTitleRender("instrumental") } 
        { renderCell("feminine", "instrumental") }
+      </Box> 
+      <Box style={tableRow}> 
+      { headerTitleRender("locative") } 
+       { renderCell("feminine", "locative") } 
       </Box> 
       <Box  style={tableRowTitle}><Text style={{fontSize: 30}}>Середній рід</Text></Box>
       <Box style={tableRow}>
@@ -107,12 +108,12 @@ const renderCell = (gender:headerOption, sklon: sklon) => {
        { renderCell("neuter", "accusative") }
       </Box> 
       <Box style={tableRow}> 
-      { headerTitleRender("locative") }  
-       { renderCell("neuter", "locative") }
-      </Box> 
-      <Box style={tableRow}> 
       { headerTitleRender("instrumental") }  
        { renderCell("neuter", "instrumental") }
+      </Box> 
+      <Box style={tableRow}> 
+      { headerTitleRender("locative") }  
+       { renderCell("neuter", "locative") }
       </Box> 
       </ScrollView> 
     </ViewContainer>

@@ -21,13 +21,13 @@ export const nounsQuestions: INounQuestions = {
         questions : "Koga - кого, Kaj - що, Kam - куди",
         ukrName: "Знахідний"
     },
-    locative : {
-        questions : "Z kom - з ким,z čim - з чим",
-        ukrName: "Орудний"
-    },
     instrumental : {
         questions : "Kje - де, o kom - про кого, o čim - про що",
         ukrName: "Місцевий"
+    },
+    locative : {
+        questions : "Z kom - з ким,z čim - з чим",
+        ukrName: "Орудний"
     }
 };
 
